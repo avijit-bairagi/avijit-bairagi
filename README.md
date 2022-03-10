@@ -1,6 +1,6 @@
-- 👋 Hi, I’m @avijit-bairagi
-- 👀 I’m interested in having fun
-- 🌱 I’m currently learning docker,kubernetes, micro-services
+- 👋 Hi, I’m Avijit Bairagi.
+- 👀 I’m interested in having fun.
+- 🌱 I’m currently learning docker, kubernetes, micro-services.
 <!-- - 💞️ I’m looking to collaborate on ...
 - 📫 How to reach me ... -->
 
