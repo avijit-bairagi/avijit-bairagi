@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-screen flex flex-col bg-dark-bg dark:bg-dark-bg light:bg-light-bg text-dark-text dark:text-dark-text light:text-light-text transition-colors duration-200">
+  <div class="min-h-screen flex flex-col bg-light-bg dark:bg-dark-bg text-light-text dark:text-dark-text transition-colors duration-200">
     <!-- Sticky Header -->
     <HeaderNav />
 
@@ -12,7 +12,7 @@
       </RouterView>
     </main>
 
-    <!-- Global Sophisticated Footer -->
+    <!-- Global Footer -->
     <FooterSection />
 
     <!-- Back to Top Floating Button -->
@@ -20,11 +20,11 @@
       v-show="showBackToTop" 
       @click="scrollToTop"
       type="button"
-      class="fixed bottom-6 right-6 z-40 p-3 rounded-xl bg-dark-elevated/90 dark:bg-dark-elevated/90 light:bg-white text-slate-300 dark:text-slate-300 light:text-slate-700 hover:text-brand-400 border border-dark-border dark:border-dark-border light:border-slate-300 shadow-xl backdrop-blur-md transition-all hover:-translate-y-1 focus:outline-none"
+      class="fixed bottom-6 right-6 z-40 p-2.5 rounded-xl bg-white dark:bg-dark-elevated text-slate-600 dark:text-slate-300 hover:text-brand-600 dark:hover:text-brand-400 border border-slate-200 dark:border-dark-border shadow-md transition-all hover:-translate-y-0.5 focus:outline-none"
       title="Back to Top"
       aria-label="Back to Top"
     >
-      <ChevronUp class="w-5 h-5" />
+      <ChevronUp class="w-4 h-4" />
     </button>
   </div>
 </template>

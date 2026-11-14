@@ -1,111 +1,129 @@
 <template>
-  <div class="inline-flex items-center justify-center select-none" :class="wrapperClass">
-    <!-- 1. Inument Solutions Limited -->
+  <div class="inline-flex items-center justify-center select-none shrink-0" :class="wrapperClass">
+    <!-- 1. Inument Solution Limited -->
     <div v-if="logoKey === 'inument'" class="flex items-center gap-2.5">
-      <svg class="h-8 w-8 text-sky-400 shrink-0" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect width="36" height="36" rx="8" fill="#0284C7" fill-opacity="0.15" />
+      <svg :class="svgSizeClass" class="text-sky-500 shrink-0" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="36" height="36" rx="8" fill="#0284C7" fill-opacity="0.12" />
         <path d="M10 26V10L16 16V26H10Z" fill="#38BDF8" />
         <path d="M20 26V10L26 16V26H20Z" fill="#0284C7" />
         <circle cx="23" cy="13" r="2.5" fill="#38BDF8" />
       </svg>
-      <div class="flex flex-col text-left leading-none">
-        <span class="font-extrabold tracking-wider text-sm font-sans text-slate-100 dark:text-slate-100 light:text-slate-900">
-          INUMENT
-        </span>
-        <span class="text-[9px] font-mono tracking-widest text-sky-400 font-semibold uppercase mt-0.5">
-          SOLUTIONS
+      <div v-if="!iconOnly" class="flex flex-col text-left leading-none">
+        <span class="font-bold text-sm font-sans text-slate-900 dark:text-slate-100">
+          Inument Solution Limited
         </span>
       </div>
     </div>
 
-    <!-- 2. bKash (Iconic Origami Bird + Typography) -->
+    <!-- 2. BRAC IT -->
+    <div v-else-if="logoKey === 'brac-it'" class="flex items-center gap-2.5">
+      <svg :class="svgSizeClass" class="shrink-0" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="36" height="36" rx="8" fill="#0EA5E9" fill-opacity="0.14" />
+        <rect x="6" y="7" width="24" height="22" rx="4" stroke="#0284C7" stroke-width="2" />
+        <path d="M12 15L16 18L12 21" stroke="#0284C7" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
+        <line x1="18" y1="21" x2="24" y2="21" stroke="#0EA5E9" stroke-width="2.2" stroke-linecap="round" />
+      </svg>
+      <span v-if="!iconOnly" class="font-bold text-sm text-slate-900 dark:text-white font-sans">
+        BRAC IT
+      </span>
+    </div>
+
+    <!-- 3. bKash -->
     <div v-else-if="logoKey === 'bkash'" class="flex items-center gap-2.5">
-      <svg class="h-8 w-8 shrink-0" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <svg :class="svgSizeClass" class="shrink-0" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect v-if="iconOnly" width="40" height="40" rx="8" fill="#E2136E" fill-opacity="0.08" />
         <path d="M22 6L33 17L27 21L22 6Z" fill="#E2136E" />
         <path d="M12 14L22 6L20 22L12 14Z" fill="#C20D5D" />
         <path d="M20 22L27 21L24 34L20 22Z" fill="#E2136E" />
         <path d="M12 14L20 22L8 27L12 14Z" fill="#ED3785" />
         <path d="M8 27L20 22L15 34L8 27Z" fill="#A8094E" />
       </svg>
-      <span class="font-bold text-xl tracking-tight text-white dark:text-white light:text-slate-900 font-sans">
+      <span v-if="!iconOnly" class="font-bold text-lg tracking-tight text-slate-900 dark:text-white font-sans">
         b<span class="text-[#E2136E]">Kash</span>
       </span>
     </div>
 
-    <!-- 3. BRAC Bank (Authentic Blue & Yellow Bank Mark) -->
+    <!-- 4. BRAC Bank -->
     <div v-else-if="logoKey === 'brac-bank'" class="flex items-center gap-2.5">
-      <svg class="h-8 w-8 shrink-0" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect width="36" height="36" rx="6" fill="#00529B" />
+      <svg :class="svgSizeClass" class="shrink-0" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="36" height="36" rx="8" fill="#00529B" />
         <path d="M8 10H18C21.3137 10 24 12.6863 24 16C24 19.3137 21.3137 22 18 22H13V26H8V10Z" fill="white" />
         <rect x="22" y="20" width="6" height="6" rx="1.5" fill="#FFC82E" />
       </svg>
-      <div class="flex flex-col text-left leading-tight">
-        <span class="font-black text-sm tracking-tight text-white dark:text-white light:text-slate-900 font-sans">
-          BRAC BANK
-        </span>
-        <span class="text-[8px] font-mono tracking-wider text-slate-400 uppercase">
-          Corporate Banking
-        </span>
-      </div>
+      <span v-if="!iconOnly" class="font-bold text-sm text-slate-900 dark:text-white font-sans">
+        BRAC Bank
+      </span>
     </div>
 
-    <!-- 4. ROBI (Iconic Red/Yellow Multi-faceted Diamond) -->
+    <!-- 5. Robi Axiata -->
     <div v-else-if="logoKey === 'robi'" class="flex items-center gap-2.5">
-      <svg class="h-8 w-8 shrink-0" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <!-- Robi Origami Diamond Shapes -->
+      <svg :class="svgSizeClass" class="shrink-0" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect v-if="iconOnly" width="36" height="36" rx="8" fill="#ED1C24" fill-opacity="0.08" />
         <polygon points="18,5 28,13 18,18 8,13" fill="#ED1C24" />
         <polygon points="28,13 31,23 21,22 18,18" fill="#F7941E" />
         <polygon points="8,13 5,23 15,22 18,18" fill="#C11117" />
         <polygon points="18,18 21,22 18,31 15,22" fill="#FFDE00" />
       </svg>
-      <span class="font-black text-lg tracking-normal text-white dark:text-white light:text-slate-900 font-sans lowercase">
-        <span class="text-[#ED1C24]">ro</span><span class="text-white dark:text-white light:text-slate-900">bi</span>
+      <span v-if="!iconOnly" class="font-bold text-sm text-slate-900 dark:text-white font-sans">
+        Robi Axiata Limited
       </span>
     </div>
 
-    <!-- 5. BEXIMCO (Distinctive Hex Ring & Industrial Typography) -->
+    <!-- 6. BEXIMCO -->
     <div v-else-if="logoKey === 'beximco'" class="flex items-center gap-2.5">
-      <svg class="h-8 w-8 shrink-0" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="18" cy="18" r="16" fill="#0F766E" fill-opacity="0.15" />
-        <circle cx="18" cy="18" r="13" stroke="#0F766E" stroke-width="2.5" />
-        <path d="M12 12L24 24M24 12L12 24" stroke="#14B8A6" stroke-width="2.5" stroke-linecap="round" />
+      <svg :class="svgSizeClass" class="shrink-0" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="36" height="36" rx="8" fill="#0F766E" fill-opacity="0.12" />
+        <circle cx="18" cy="18" r="10" stroke="#0F766E" stroke-width="2.2" />
+        <path d="M13 13L23 23M23 13L13 23" stroke="#14B8A6" stroke-width="2.2" stroke-linecap="round" />
       </svg>
-      <div class="flex flex-col text-left leading-none">
-        <span class="font-extrabold text-sm tracking-wider text-white dark:text-white light:text-slate-900 font-sans uppercase">
-          BEXIMCO
-        </span>
-        <span class="text-[8px] font-mono tracking-widest text-teal-400 font-semibold uppercase mt-0.5">
-          ENTERPRISE
-        </span>
-      </div>
+      <span v-if="!iconOnly" class="font-bold text-sm text-slate-900 dark:text-white font-sans uppercase">
+        BEXIMCO
+      </span>
     </div>
 
-    <!-- 6. iTogether (Connected Tech Mark) -->
+    <!-- 7. Together Initiative Limited -->
     <div v-else-if="logoKey === 'itogether'" class="flex items-center gap-2.5">
-      <svg class="h-8 w-8 text-indigo-400 shrink-0" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect width="36" height="36" rx="8" fill="#6366F1" fill-opacity="0.15" />
-        <circle cx="14" cy="12" r="3" fill="#818CF8" />
-        <path d="M14 18V26" stroke="#818CF8" stroke-width="3" stroke-linecap="round" />
-        <circle cx="22" cy="15" r="2.5" fill="#A5B4FC" />
-        <path d="M22 20V26" stroke="#A5B4FC" stroke-width="2.5" stroke-linecap="round" />
+      <svg :class="svgSizeClass" class="text-indigo-500 shrink-0" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="36" height="36" rx="8" fill="#6366F1" fill-opacity="0.14" />
+        <circle cx="14" cy="12" r="3" fill="#6366F1" />
+        <path d="M14 18V26" stroke="#6366F1" stroke-width="3" stroke-linecap="round" />
+        <circle cx="22" cy="15" r="2.5" fill="#818CF8" />
+        <path d="M22 20V26" stroke="#818CF8" stroke-width="2.5" stroke-linecap="round" />
         <path d="M11 26H25" stroke="#6366F1" stroke-width="2" stroke-linecap="round" />
       </svg>
-      <span class="font-bold text-base tracking-tight text-white dark:text-white light:text-slate-900 font-sans">
-        <span class="text-indigo-400">i</span>Together
+      <span v-if="!iconOnly" class="font-bold text-sm text-slate-900 dark:text-white font-sans">
+        Together Initiative Limited
       </span>
     </div>
 
     <!-- Fallback -->
-    <div v-else class="text-sm font-bold font-mono tracking-wider text-slate-300">
-      {{ fallbackText }}
+    <div v-else :class="svgSizeClass" class="rounded-lg bg-slate-100 dark:bg-dark-elevated border border-slate-200 dark:border-dark-border flex items-center justify-center text-xs font-bold font-mono text-slate-600 dark:text-slate-300">
+      {{ fallbackText?.slice(0, 2) || 'CO' }}
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-defineProps<{
-  logoKey: string
-  fallbackText?: string
-  wrapperClass?: string
-}>()
+import { computed } from 'vue'
+
+const props = withDefaults(
+  defineProps<{
+    logoKey: string
+    fallbackText?: string
+    wrapperClass?: string
+    iconOnly?: boolean
+    size?: 'xs' | 'sm' | 'md' | 'lg'
+  }>(),
+  {
+    iconOnly: false,
+    size: 'md'
+  }
+)
+
+const svgSizeClass = computed(() => {
+  if (props.size === 'xs') return 'h-4 w-4'
+  if (props.size === 'sm') return 'h-6 w-6'
+  if (props.size === 'lg') return 'h-12 w-12'
+  return props.iconOnly ? 'h-11 w-11' : 'h-8 w-8'
+})
 </script>

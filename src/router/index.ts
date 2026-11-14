@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '@/views/HomeView.vue'
 import PortfolioView from '@/views/PortfolioView.vue'
+import ContactView from '@/views/ContactView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -10,15 +11,24 @@ const router = createRouter({
       name: 'home',
       component: HomeView,
       meta: {
-        title: 'Avijit Bairagi | Lead Software Engineer | Fintech & Backend Engineering'
+        title: 'Avijit Bairagi | Lead Software Engineer'
       }
     },
     {
       path: '/portfolio',
       name: 'portfolio',
+      alias: '/experience',
       component: PortfolioView,
       meta: {
-        title: 'Portfolio & Professional Experience | Avijit Bairagi'
+        title: 'Professional Experience | Avijit Bairagi'
+      }
+    },
+    {
+      path: '/contact',
+      name: 'contact',
+      component: ContactView,
+      meta: {
+        title: 'Contact | Avijit Bairagi'
       }
     },
     {

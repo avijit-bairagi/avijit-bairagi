@@ -2,7 +2,7 @@ import { ref, onMounted } from 'vue'
 
 type ThemeMode = 'dark' | 'light'
 
-const currentTheme = ref<ThemeMode>('dark')
+const currentTheme = ref<ThemeMode>('light')
 
 export function useTheme() {
   const initTheme = () => {
@@ -11,8 +11,7 @@ export function useTheme() {
     if (saved === 'light' || saved === 'dark') {
       currentTheme.value = saved
     } else {
-      // Default dark theme as requested
-      currentTheme.value = 'dark'
+      currentTheme.value = 'light'
     }
     applyTheme(currentTheme.value)
   }

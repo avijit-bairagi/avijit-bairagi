@@ -1,6 +1,13 @@
+export interface PartnerCompany {
+  name: string
+  logoKey: 'inument' | 'brac-it' | 'itogether' | 'bkash' | 'brac-bank' | 'robi' | 'beximco'
+}
+
 export interface ExperienceItem {
   id: string
   company: string
+  logoKey: 'inument' | 'brac-it' | 'itogether'
+  partners: PartnerCompany[]
   companyRelationship: string
   role: string
   period: string
@@ -15,61 +22,68 @@ export interface ExperienceItem {
 export const experiences: ExperienceItem[] = [
   {
     id: 'inument-lead',
-    company: 'Inument Solutions Limited',
-    companyRelationship: 'Direct Employer (Serving bKash Ecosystem)',
-    role: 'Lead Software Engineer / Senior Software Engineer',
+    company: 'Inument Solution Limited',
+    logoKey: 'inument',
+    partners: [{ name: 'bKash', logoKey: 'bkash' }],
+    companyRelationship: 'Inument Solution Limited × bKash',
+    role: 'Lead Software Engineer',
     period: '2021 — Present',
     location: 'Dhaka, Bangladesh',
     domain: 'Fintech, Payment Systems & High-Throughput Microservices',
-    summary: 'Directing the architecture and backend engineering of core fintech services, payment gateway integrations, and bank-to-wallet pipelines within the bKash ecosystem.',
+    summary: 'Leading backend architecture and core fintech system engineering for high-volume payment switches and financial integrations in collaboration with bKash.',
     contributions: [
-      'Architected and implemented high-volume ISO 8583 financial transaction integration for National Payment Switch Bangladesh (NPSB).',
-      'Engineered the Direct Charge payment infrastructure handling local and international merchant debits with automated reconciliation and retry mechanisms.',
-      'Designed Bank-to-bKash and Digital Savings / DPS backend flows ensuring ACID compliance and transaction idempotency across distributed banking endpoints.',
-      'Spearheaded transition toward reactive microservices using Spring Boot, Spring WebFlux, and Apache Kafka for asynchronous decoupled event processing.',
-      'Established distributed tracing with OpenTelemetry and Micrometer metrics, driving down mean-time-to-detection (MTTD) for transaction bottlenecks.'
+      'Architected ISO 8583 transaction switching for National Payment Switch Bangladesh (NPSB) and Direct Charge merchant payment flows.',
+      'Designed Bank-to-bKash and Digital Savings / DPS backend pipelines with strict ACID compliance and distributed idempotency.',
+      'Adopted reactive microservices with Spring WebFlux, Apache Kafka, and OpenTelemetry distributed tracing.'
     ],
-    technologies: ['Java', 'Spring Boot', 'Spring WebFlux', 'Spring Security', 'Kafka', 'PostgreSQL', 'Redis', 'Docker', 'AWS', 'OpenTelemetry'],
+    technologies: ['Java', 'Spring Boot', 'Spring WebFlux', 'Kafka', 'PostgreSQL', 'Redis', 'Docker', 'OpenTelemetry'],
     achievements: [
-      'Successfully delivered production integrations processing mission-critical financial transactions with zero data loss.',
-      'Mentored mid-level and junior backend engineers, introducing rigorous code review standards and unit/integration testing patterns.'
+      'Delivered mission-critical financial switch integrations with zero data loss.',
+      'Mentored backend squads on code quality and automated testing standards.'
     ]
   },
   {
     id: 'brac-it',
-    company: 'BRAC IT / BRAC Bank',
-    companyRelationship: 'Enterprise Banking Project & Solutions',
+    company: 'BRAC IT',
+    logoKey: 'brac-it',
+    partners: [{ name: 'BRAC Bank', logoKey: 'brac-bank' }],
+    companyRelationship: 'BRAC IT × BRAC Bank',
     role: 'Software Engineer',
     period: '2018 — 2021',
     location: 'Dhaka, Bangladesh',
-    domain: 'Enterprise Banking, Financial Transaction Processing & CBS Integration',
-    summary: 'Engineered corporate banking solutions, electronic fund transfer switches, and core banking system (CBS) integration modules for enterprise corporate clients.',
+    domain: 'Enterprise Banking & Core Banking Integrations',
+    summary: 'Engineered corporate internet banking platforms, real-time clearing switches, and Core Banking System (CBS) integrations for BRAC Bank.',
     contributions: [
-      'Developed and maintained corporate banking modules facilitating bulk salary disbursements, inter-bank fund transfers (IFT), and RTGS/BEFTN processing.',
-      'Engineered LC Alert (Letter of Credit) notification service and corporate statement reconciliation engines.',
-      'Implemented robust multi-factor authorization and audit logging protocols complying with central bank regulatory mandates.',
-      'Streamlined database queries and transaction isolation levels across relational databases to handle concurrent high-volume end-of-day bank clearing runs.'
+      'Built corporate banking modules supporting bulk payroll disbursements, inter-bank fund transfers, and RTGS clearing.',
+      'Developed Letter of Credit (LC) alert notifications and automated end-of-day statement reconciliation engines.',
+      'Implemented role-based maker-checker approvals and regulatory audit trails across enterprise banking APIs.'
     ],
-    technologies: ['Java', 'Spring Framework', 'Spring Boot', 'Oracle / MySQL', 'REST APIs', 'SOAP / XML', 'Linux', 'Jenkins'],
+    technologies: ['Java', 'Spring Boot', 'Spring Security', 'Oracle Database', 'REST APIs', 'SOAP / XML', 'Linux'],
     achievements: [
-      'Automated batch financial clearing reducing manual operational intervention by banking teams.',
-      'Maintained 99.9% uptime for corporate banking APIs during peak operating business hours.'
+      'Automated high-volume corporate financial clearing workflows.',
+      'Maintained 99.9% availability across institutional banking portals.'
     ]
   },
   {
-    id: 'earlier-enterprise',
-    company: 'Enterprise Software & Telecom Projects',
-    companyRelationship: 'Project Contributions (ROBI, BEXIMCO)',
+    id: 'together-initiative',
+    company: 'Together Initiative Limited',
+    logoKey: 'itogether',
+    partners: [
+      { name: 'bKash', logoKey: 'bkash' },
+      { name: 'Robi', logoKey: 'robi' },
+      { name: 'Beximco', logoKey: 'beximco' }
+    ],
+    companyRelationship: 'Together Initiative Limited × bKash × Robi × Beximco',
     role: 'Software Engineer',
     period: '2016 — 2018',
     location: 'Dhaka, Bangladesh',
-    domain: 'Telecommunications, Campaign Management & Enterprise Distribution',
-    summary: 'Delivered mission-critical enterprise systems including telecom campaign management for ROBI Axiata and mobile sales force automation for BEXIMCO.',
+    domain: 'Fintech, Telecom Platforms & Enterprise Mobility',
+    summary: 'Delivered enterprise web services, mobile applications, and high-frequency backend platforms across client engagements for bKash, Robi, and Beximco.',
     contributions: [
-      'Engineered high-frequency campaign notification and SMS gateway routers for telecom subscriber targeting.',
-      'Built backend REST APIs and inventory synchronization engines for BEXIMCO mSales distribution suite.',
-      'Integrated real-time location and reporting dashboards for field force management.'
+      'Developed payment gateway and enterprise web service integrations supporting bKash digital services.',
+      'Engineered subscriber workflow automation, NTMS traffic monitoring, and high-frequency campaign management for Robi.',
+      'Built Pharma CRM and Field Force Automation (FFA) synchronization APIs for Beximco distribution networks.'
     ],
-    technologies: ['Java', 'Spring', 'MySQL', 'Redis', 'REST APIs', 'Git', 'Maven']
+    technologies: ['Java', 'Spring Framework', 'MySQL', 'Redis', 'REST APIs', 'Mobile Applications', 'Linux']
   }
 ]

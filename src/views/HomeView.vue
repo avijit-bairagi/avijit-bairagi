@@ -1,16 +1,13 @@
 <template>
-  <div class="relative">
-    <!-- Hero Introduction -->
+  <div class="pb-12">
+    <!-- Summary (Single clean view) -->
     <HeroSection />
 
-    <!-- 1. What I created (Name, logo, and description - Smart Hisab, Arcade Play, etc.) -->
+    <!-- What I created (Icon, Name, Simple Description) -->
     <WhatICreatedSection />
 
-    <!-- 2. What company I work with (Name and logo only) -->
+    <!-- Companies I Worked With (Logo and Name Only) -->
     <CompaniesSection />
-
-    <!-- Simple Connect / Contact Section -->
-    <ContactSection />
   </div>
 </template>
 
@@ -18,5 +15,4 @@
 import HeroSection from '@/components/home/HeroSection.vue'
 import WhatICreatedSection from '@/components/home/WhatICreatedSection.vue'
 import CompaniesSection from '@/components/home/CompaniesSection.vue'
-import ContactSection from '@/components/common/ContactSection.vue'
 </script>
