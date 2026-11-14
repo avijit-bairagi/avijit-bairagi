@@ -5,18 +5,22 @@
         Companies I Worked With
       </h2>
 
-      <!-- Companies Grid: Logo and Full Name Only -->
+      <!-- Companies Grid: Official Logo and Full Name Only -->
       <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3.5">
-        <RouterLink
+        <a
           v-for="company in companies"
           :key="company.id"
-          to="/portfolio"
-          class="group flex flex-col items-center justify-center p-4 rounded-xl bg-white dark:bg-dark-surface border border-slate-200 dark:border-dark-border hover:border-slate-300 dark:hover:border-slate-600 transition-all text-center shadow-xs hover:shadow-sm"
+          :href="company.website"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="group relative flex flex-col items-center justify-center p-4 rounded-xl bg-white dark:bg-dark-surface border border-slate-200 dark:border-dark-border hover:border-slate-300 dark:hover:border-slate-600 transition-all text-center shadow-xs hover:shadow-sm"
         >
+          <ExternalLink class="w-3 h-3 text-slate-400 opacity-0 group-hover:opacity-100 transition-opacity absolute top-2.5 right-2.5" />
+
           <div class="mb-2.5 group-hover:scale-105 transition-transform duration-200">
             <CompanyLogo
               :logo-key="company.logoKey"
-              :fallback-text="company.logoText"
+              :fallback-text="company.name"
               :icon-only="true"
             />
           </div>
@@ -24,13 +28,14 @@
           <span class="text-xs font-semibold text-slate-800 dark:text-slate-200 group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors leading-snug">
             {{ company.name }}
           </span>
-        </RouterLink>
+        </a>
       </div>
     </div>
   </section>
 </template>
 
 <script setup lang="ts">
+import { ExternalLink } from 'lucide-vue-next'
 import { companies } from '@/data/companies'
 import CompanyLogo from '@/components/common/CompanyLogo.vue'
 </script>

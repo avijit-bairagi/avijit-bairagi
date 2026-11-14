@@ -9,8 +9,12 @@
         class="flex items-center gap-2.5 focus:outline-none shrink-0"
         aria-label="Avijit Bairagi Home"
       >
-        <div class="w-8 h-8 rounded-lg bg-slate-900 dark:bg-brand-600 text-white flex items-center justify-center font-mono font-bold text-xs">
-          AB
+        <div class="w-8 h-8 rounded-lg overflow-hidden bg-slate-900 border border-slate-200 dark:border-dark-border shrink-0">
+          <img
+            src="/assets/aistudio/WhatsApp_Image_2026-11-14_at_4.11.58_PM_12d440c2.jpeg"
+            alt="Avijit Bairagi"
+            class="w-full h-full object-cover object-top"
+          />
         </div>
         <span class="font-bold tracking-tight text-sm text-slate-900 dark:text-white">
           Avijit Bairagi

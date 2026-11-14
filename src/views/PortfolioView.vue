@@ -8,8 +8,12 @@
 
         <div class="px-5 sm:px-7 pb-6">
           <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 -mt-10 sm:-mt-12 mb-4">
-            <div class="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl bg-slate-900 dark:bg-brand-600 text-white border-4 border-white dark:border-dark-surface flex items-center justify-center font-mono font-bold text-2xl sm:text-3xl shadow-sm shrink-0">
-              AB
+            <div class="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl overflow-hidden bg-slate-900 border-4 border-white dark:border-dark-surface shadow-sm shrink-0">
+              <img
+                src="/assets/aistudio/WhatsApp_Image_2026-11-14_at_4.11.58_PM_12d440c2.jpeg"
+                alt="Avijit Bairagi"
+                class="w-full h-full object-cover object-top"
+              />
             </div>
 
             <div class="flex flex-wrap items-center gap-2">
@@ -48,7 +52,7 @@
               Avijit Bairagi
             </h1>
             <p class="text-sm sm:text-base text-slate-700 dark:text-slate-200 font-medium">
-              Lead Software Engineer &middot; Fintech, Payment Systems &amp; Backend Architecture
+              Lead Software Engineer | Fintech | Payment Systems | Backend Architecture
             </p>
             <div class="text-xs text-slate-500 dark:text-slate-400 flex flex-wrap items-center gap-1.5 pt-0.5">
               <span>Dhaka, Bangladesh</span>
@@ -94,15 +98,25 @@
 
               <!-- Employer × Client Visual Partnership Strip -->
               <div class="mt-2 flex flex-wrap items-center gap-1.5">
-                <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-dark-elevated border border-slate-200 dark:border-dark-border text-xs font-semibold text-slate-800 dark:text-slate-100">
+                <a
+                  :href="exp.website"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-dark-elevated hover:border-brand-500/40 border border-slate-200 dark:border-dark-border text-xs font-semibold text-slate-800 dark:text-slate-100 transition-colors"
+                >
                   {{ exp.company }}
-                </span>
+                </a>
 
                 <template v-for="partner in exp.partners" :key="partner.name">
                   <span class="text-xs font-mono font-bold text-brand-600 dark:text-brand-400 px-0.5">
                     &times;
                   </span>
-                  <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-slate-50 dark:bg-dark-bg border border-slate-200 dark:border-dark-border text-xs font-medium text-slate-700 dark:text-slate-200">
+                  <a
+                    :href="partner.website"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-slate-50 dark:bg-dark-bg hover:border-brand-500/40 border border-slate-200 dark:border-dark-border text-xs font-medium text-slate-700 dark:text-slate-200 transition-colors"
+                  >
                     <CompanyLogo
                       :logo-key="partner.logoKey"
                       :fallback-text="partner.name"
@@ -110,7 +124,7 @@
                       size="xs"
                     />
                     <span>{{ partner.name }}</span>
-                  </span>
+                  </a>
                 </template>
               </div>
 
@@ -354,11 +368,11 @@ const selectedProject = ref<ProjectItem | null>(null)
 const orgFilters = [
   { id: 'all', label: 'All' },
   { id: 'bkash', label: 'bKash' },
-  { id: 'brac-bank', label: 'BRAC Bank' },
-  { id: 'robi', label: 'Robi Axiata' },
+  { id: 'brac-bank', label: 'BRAC Bank PLC' },
+  { id: 'robi', label: 'Robi Axiata Limited' },
   { id: 'beximco', label: 'BEXIMCO' },
   { id: 'inument', label: 'Inument' },
-  { id: 'itogether', label: 'Together Initiative' }
+  { id: 'itogether', label: 'Together Initiative Limited' }
 ]
 
 const coreSkills = [

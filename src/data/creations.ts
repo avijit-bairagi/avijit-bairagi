@@ -4,15 +4,17 @@ export interface CreatedItem {
   description: string
   iconKey: 'dhamaka-game' | 'daylo' | 'smart-hisab'
   accentColor: string
+  url?: string
 }
 
 export const creationsList: CreatedItem[] = [
   {
     id: 'dhamaka-game',
-    name: 'Dhamaka | Game',
-    description: 'Fast, lightweight browser games and interactive arcade experiences built with smooth 60 FPS canvas physics.',
+    name: 'Game | Dhamaka',
+    description: 'Game night, one link away — fast, lightweight browser games and interactive party experiences built for instant play.',
     iconKey: 'dhamaka-game',
-    accentColor: '#7C3AED'
+    accentColor: '#84CC16',
+    url: 'https://games.dhamaka.site/'
   },
   {
     id: 'daylo',

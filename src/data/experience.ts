@@ -1,11 +1,13 @@
 export interface PartnerCompany {
   name: string
+  website: string
   logoKey: 'inument' | 'brac-it' | 'itogether' | 'bkash' | 'brac-bank' | 'robi' | 'beximco'
 }
 
 export interface ExperienceItem {
   id: string
   company: string
+  website: string
   logoKey: 'inument' | 'brac-it' | 'itogether'
   partners: PartnerCompany[]
   companyRelationship: string
@@ -22,10 +24,11 @@ export interface ExperienceItem {
 export const experiences: ExperienceItem[] = [
   {
     id: 'inument-lead',
-    company: 'Inument Solution Limited',
+    company: 'Inument',
+    website: 'https://inument.com',
     logoKey: 'inument',
-    partners: [{ name: 'bKash', logoKey: 'bkash' }],
-    companyRelationship: 'Inument Solution Limited × bKash',
+    partners: [{ name: 'bKash', website: 'https://www.bkash.com', logoKey: 'bkash' }],
+    companyRelationship: 'Inument × bKash',
     role: 'Lead Software Engineer',
     period: '2021 — Present',
     location: 'Dhaka, Bangladesh',
@@ -44,15 +47,16 @@ export const experiences: ExperienceItem[] = [
   },
   {
     id: 'brac-it',
-    company: 'BRAC IT',
+    company: 'BRAC IT Services Limited',
+    website: 'https://www.bracits.com',
     logoKey: 'brac-it',
-    partners: [{ name: 'BRAC Bank', logoKey: 'brac-bank' }],
-    companyRelationship: 'BRAC IT × BRAC Bank',
+    partners: [{ name: 'BRAC Bank PLC', website: 'https://www.bracbank.com', logoKey: 'brac-bank' }],
+    companyRelationship: 'BRAC IT Services Limited × BRAC Bank PLC',
     role: 'Software Engineer',
     period: '2018 — 2021',
     location: 'Dhaka, Bangladesh',
     domain: 'Enterprise Banking & Core Banking Integrations',
-    summary: 'Engineered corporate internet banking platforms, real-time clearing switches, and Core Banking System (CBS) integrations for BRAC Bank.',
+    summary: 'Engineered corporate internet banking platforms, real-time clearing switches, and Core Banking System (CBS) integrations for BRAC Bank PLC.',
     contributions: [
       'Built corporate banking modules supporting bulk payroll disbursements, inter-bank fund transfers, and RTGS clearing.',
       'Developed Letter of Credit (LC) alert notifications and automated end-of-day statement reconciliation engines.',
@@ -67,22 +71,23 @@ export const experiences: ExperienceItem[] = [
   {
     id: 'together-initiative',
     company: 'Together Initiative Limited',
+    website: 'https://i2gether.com',
     logoKey: 'itogether',
     partners: [
-      { name: 'bKash', logoKey: 'bkash' },
-      { name: 'Robi', logoKey: 'robi' },
-      { name: 'Beximco', logoKey: 'beximco' }
+      { name: 'bKash', website: 'https://www.bkash.com', logoKey: 'bkash' },
+      { name: 'Robi Axiata Limited', website: 'https://www.robi.com.bd', logoKey: 'robi' },
+      { name: 'BEXIMCO', website: 'https://www.beximco.com', logoKey: 'beximco' }
     ],
-    companyRelationship: 'Together Initiative Limited × bKash × Robi × Beximco',
+    companyRelationship: 'Together Initiative Limited × bKash × Robi Axiata Limited × BEXIMCO',
     role: 'Software Engineer',
     period: '2016 — 2018',
     location: 'Dhaka, Bangladesh',
     domain: 'Fintech, Telecom Platforms & Enterprise Mobility',
-    summary: 'Delivered enterprise web services, mobile applications, and high-frequency backend platforms across client engagements for bKash, Robi, and Beximco.',
+    summary: 'Delivered enterprise web services, mobile applications, and high-frequency backend platforms across client engagements for bKash, Robi Axiata Limited, and BEXIMCO.',
     contributions: [
       'Developed payment gateway and enterprise web service integrations supporting bKash digital services.',
-      'Engineered subscriber workflow automation, NTMS traffic monitoring, and high-frequency campaign management for Robi.',
-      'Built Pharma CRM and Field Force Automation (FFA) synchronization APIs for Beximco distribution networks.'
+      'Engineered subscriber workflow automation, NTMS traffic monitoring, and high-frequency campaign management for Robi Axiata Limited.',
+      'Built Pharma CRM and Field Force Automation (FFA) synchronization APIs for BEXIMCO distribution networks.'
     ],
     technologies: ['Java', 'Spring Framework', 'MySQL', 'Redis', 'REST APIs', 'Mobile Applications', 'Linux']
   }
