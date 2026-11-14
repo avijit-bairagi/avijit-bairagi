@@ -12,21 +12,25 @@
             />
           </div>
           <div>
-            <div class="text-base font-bold text-slate-900 dark:text-white">
+            <div class="text-lg font-bold text-slate-900 dark:text-white tracking-tight">
               Avijit Bairagi
             </div>
-            <div class="text-xs font-mono text-brand-600 dark:text-brand-400 font-medium mt-0.5">
-              Lead Software Engineer | Fintech | Backend Systems
+            <div class="text-sm font-medium text-brand-600 dark:text-brand-400 mt-0.5 flex flex-wrap items-center gap-x-2">
+              <span>Lead Software Engineer</span>
+              <span class="text-slate-300 dark:text-slate-600">|</span>
+              <span>Fintech</span>
+              <span class="text-slate-300 dark:text-slate-600">|</span>
+              <span>Backend Systems</span>
             </div>
           </div>
         </div>
 
         <h1 class="text-3xl sm:text-4xl lg:text-[2.6rem] font-extrabold tracking-tight text-slate-900 dark:text-white leading-[1.15] [text-wrap:balance]">
-          Engineering reliable backend systems &amp; products built to last.
+          Designing reliable backend systems &amp; digital products.
         </h1>
 
         <p class="text-base sm:text-lg text-slate-600 dark:text-slate-300 leading-relaxed max-w-2xl">
-          Software Engineer with 8+ years of experience building enterprise fintech platforms, payment switches, scalable microservices, and everyday web applications.
+          Lead Software Engineer with 8+ years of experience building fintech payment platforms, enterprise banking integrations, cloud-ready services, and everyday web applications.
         </p>
 
         <div class="pt-1 flex flex-wrap items-center gap-3">

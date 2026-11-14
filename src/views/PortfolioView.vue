@@ -158,7 +158,7 @@
 
               <div class="mt-3 text-xs text-slate-500 dark:text-slate-400">
                 <span class="font-semibold text-slate-700 dark:text-slate-200">Skills:</span>
-                {{ exp.technologies.slice(0, 6).join(' · ') }}
+                {{ exp.technologies.join(' · ') }}
               </div>
             </div>
           </div>

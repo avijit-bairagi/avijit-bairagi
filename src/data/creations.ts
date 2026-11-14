@@ -11,7 +11,7 @@ export const creationsList: CreatedItem[] = [
   {
     id: 'dhamaka-game',
     name: 'Game | Dhamaka',
-    description: 'Game night, one link away — fast, lightweight browser games and interactive party experiences built for instant play.',
+    description: 'Fast, lightweight browser games and interactive party experiences built for instant play.',
     iconKey: 'dhamaka-game',
     accentColor: '#84CC16',
     url: 'https://games.dhamaka.site/'
@@ -19,14 +19,14 @@ export const creationsList: CreatedItem[] = [
   {
     id: 'daylo',
     name: 'Daylo',
-    description: 'Clean daily planner, task organizer, and habit companion designed to keep everyday work calm and focused.',
+    description: 'Daily planner and task organizer built to keep everyday work structured and focused.',
     iconKey: 'daylo',
     accentColor: '#0284C7'
   },
   {
     id: 'smart-hisab',
     name: 'Smart Hisab',
-    description: 'Simple digital bookkeeping and cash-flow ledger for tracking daily income, expenses, and balances effortlessly.',
+    description: 'Digital bookkeeping ledger for tracking daily income, expenses, and cash balances.',
     iconKey: 'smart-hisab',
     accentColor: '#059669'
   }
