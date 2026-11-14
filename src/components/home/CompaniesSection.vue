@@ -17,11 +17,13 @@
         >
           <ExternalLink class="w-3 h-3 text-slate-400 opacity-0 group-hover:opacity-100 transition-opacity absolute top-2.5 right-2.5" />
 
-          <div class="mb-2.5 group-hover:scale-105 transition-transform duration-200">
+          <div class="mb-3 w-full flex justify-center group-hover:scale-[1.03] transition-transform duration-200">
             <CompanyLogo
               :logo-key="company.logoKey"
               :fallback-text="company.name"
               :icon-only="true"
+              size="card"
+              wrapper-class="w-full"
             />
           </div>
 
