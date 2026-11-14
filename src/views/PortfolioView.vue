@@ -280,44 +280,76 @@
         </div>
       </section>
 
-      <!-- 4. LinkedIn-Style Education Card (with DU IIT) -->
+      <!-- 4. LinkedIn-Style Education Card -->
       <section class="rounded-2xl bg-white dark:bg-dark-surface border border-slate-200 dark:border-dark-border p-5 sm:p-7 shadow-xs">
         <h2 class="text-lg font-bold text-slate-900 dark:text-white mb-5">
           Education
         </h2>
 
         <div class="divide-y divide-slate-200 dark:divide-dark-border">
-          <!-- University of Dhaka — IIT -->
+          <!-- Institute of Information Technology (IIT), University of Dhaka -->
           <div class="flex items-start gap-4 pb-5">
-            <div class="w-11 h-11 rounded-lg bg-rose-500/10 border border-rose-500/20 flex flex-col items-center justify-center text-rose-700 dark:text-rose-400 font-mono font-bold leading-none shrink-0">
-              <span class="text-[10px]">DU</span>
-              <span class="text-xs mt-0.5">IIT</span>
-            </div>
-            <div>
-              <h3 class="text-base font-bold text-slate-900 dark:text-white">
-                Institute of Information Technology (IIT), University of Dhaka
-              </h3>
+            <a
+              href="https://iit.du.ac.bd/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="w-14 h-11 rounded-lg bg-white border border-slate-200 dark:border-dark-border p-1.5 flex items-center justify-center shrink-0 hover:border-brand-500/50 transition-colors"
+            >
+              <img
+                src="/logos/iit-du.png"
+                alt="Institute of Information Technology, University of Dhaka"
+                class="w-full h-full object-contain"
+              />
+            </a>
+            <div class="min-w-0">
+              <a
+                href="https://iit.du.ac.bd/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center gap-1.5 text-base font-bold text-slate-900 dark:text-white hover:text-brand-600 dark:hover:text-brand-400 transition-colors"
+              >
+                <span>Institute of Information Technology (IIT), University of Dhaka</span>
+                <ExternalLink class="w-3.5 h-3.5 text-slate-400 shrink-0" />
+              </a>
               <div class="text-sm text-slate-700 dark:text-slate-200 font-medium mt-0.5">
-                Postgraduate / Information Technology &amp; Software Engineering
+                Postgraduate Studies &middot; Information Technology &amp; Software Engineering
               </div>
               <p class="text-xs text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">
-                Institute of Information Technology (IIT), University of Dhaka &middot; Software Engineering, Distributed Systems &amp; Enterprise Computing.
+                Dhaka, Bangladesh &middot; Software Engineering, Distributed Systems &amp; Enterprise Computing
               </p>
             </div>
           </div>
 
-          <!-- B.Sc. in CSE -->
+          <!-- Gopalganj Science and Technology University (GSTU) -->
           <div class="flex items-start gap-4 pt-5">
-            <div class="w-11 h-11 rounded-lg bg-slate-100 dark:bg-dark-elevated border border-slate-200 dark:border-dark-border flex items-center justify-center text-slate-700 dark:text-brand-400 shrink-0">
-              <GraduationCap class="w-5 h-5" />
-            </div>
-            <div>
-              <h3 class="text-base font-bold text-slate-900 dark:text-white">
+            <a
+              href="https://gstu.edu.bd/s/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="w-14 h-11 rounded-lg bg-white border border-slate-200 dark:border-dark-border p-1 flex items-center justify-center overflow-hidden shrink-0 hover:border-brand-500/50 transition-colors"
+            >
+              <img
+                src="/logos/gstu.jpeg"
+                alt="Gopalganj Science and Technology University"
+                class="w-full h-full object-contain"
+              />
+            </a>
+            <div class="min-w-0">
+              <a
+                href="https://gstu.edu.bd/s/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center gap-1.5 text-base font-bold text-slate-900 dark:text-white hover:text-brand-600 dark:hover:text-brand-400 transition-colors"
+              >
+                <span>Gopalganj Science and Technology University (GSTU)</span>
+                <ExternalLink class="w-3.5 h-3.5 text-slate-400 shrink-0" />
+              </a>
+              <div class="text-sm text-slate-700 dark:text-slate-200 font-medium mt-0.5">
                 Bachelor of Science in Computer Science &amp; Engineering (B.Sc. in CSE)
-              </h3>
-              <div class="text-sm text-slate-600 dark:text-slate-300 mt-0.5">
-                Computer Science &amp; Software Engineering
               </div>
+              <p class="text-xs text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">
+                Gopalganj, Bangladesh &middot; Computer Science &amp; Software Engineering
+              </p>
             </div>
           </div>
         </div>
@@ -353,7 +385,7 @@
 <script setup lang="ts">
 import { ref, computed, onMounted } from 'vue'
 import { useRoute } from 'vue-router'
-import { Mail, Linkedin, Github, GraduationCap, ChevronLeft, ChevronRight } from 'lucide-vue-next'
+import { Mail, Linkedin, Github, ExternalLink, ChevronLeft, ChevronRight } from 'lucide-vue-next'
 import { experiences } from '@/data/experience'
 import { projects, type ProjectItem } from '@/data/projects'
 import CompanyLogo from '@/components/common/CompanyLogo.vue'
