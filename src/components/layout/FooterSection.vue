@@ -35,24 +35,29 @@
               </RouterLink>
             </li>
             <li>
+              <a href="/#what-i-created" class="text-slate-300 dark:text-slate-300 light:text-slate-600 hover:text-brand-400 transition-colors">
+                What I Created
+              </a>
+            </li>
+            <li>
+              <a href="/#companies" class="text-slate-300 dark:text-slate-300 light:text-slate-600 hover:text-brand-400 transition-colors">
+                Companies I Work With
+              </a>
+            </li>
+            <li>
               <RouterLink to="/portfolio" class="text-slate-300 dark:text-slate-300 light:text-slate-600 hover:text-brand-400 transition-colors flex items-center gap-1.5">
-                <span>Portfolio</span>
-                <span class="text-[10px] font-mono px-1.5 py-0.2 rounded bg-brand-500/10 text-brand-400 border border-brand-500/20">Full Profile</span>
+                <span>Professional Experience</span>
+                <span class="text-[10px] font-mono px-1.5 py-0.2 rounded bg-brand-500/10 text-brand-400 border border-brand-500/20">Full Career</span>
               </RouterLink>
             </li>
             <li>
               <RouterLink to="/portfolio#experience" class="text-slate-300 dark:text-slate-300 light:text-slate-600 hover:text-brand-400 transition-colors">
-                Experience Timeline
+                Career Timeline
               </RouterLink>
             </li>
             <li>
               <RouterLink to="/portfolio#org-projects" class="text-slate-300 dark:text-slate-300 light:text-slate-600 hover:text-brand-400 transition-colors">
                 Projects by Organization
-              </RouterLink>
-            </li>
-            <li>
-              <RouterLink to="/portfolio#expertise" class="text-slate-300 dark:text-slate-300 light:text-slate-600 hover:text-brand-400 transition-colors">
-                Technical Expertise
               </RouterLink>
             </li>
           </ul>

@@ -121,14 +121,45 @@
 </template>
 
 <script setup lang="ts">
+import { watch, onMounted, onUnmounted } from 'vue'
 import { X, CheckCircle2 } from 'lucide-vue-next'
 import type { ProjectItem } from '@/data/projects'
 
-defineProps<{
+const props = defineProps<{
   project: ProjectItem | null
 }>()
 
-defineEmits<{
+const emit = defineEmits<{
   (e: 'close'): void
 }>()
+
+const handleKeydown = (e: KeyboardEvent) => {
+  if (e.key === 'Escape' && props.project) {
+    emit('close')
+  }
+}
+
+watch(
+  () => props.project,
+  (val) => {
+    if (typeof document !== 'undefined') {
+      if (val) {
+        document.body.style.overflow = 'hidden'
+      } else {
+        document.body.style.overflow = ''
+      }
+    }
+  }
+)
+
+onMounted(() => {
+  window.addEventListener('keydown', handleKeydown)
+})
+
+onUnmounted(() => {
+  window.removeEventListener('keydown', handleKeydown)
+  if (typeof document !== 'undefined') {
+    document.body.style.overflow = ''
+  }
+})
 </script>

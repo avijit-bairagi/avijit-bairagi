@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-screen flex flex-col bg-dark-bg text-dark-text transition-colors duration-200">
+  <div class="min-h-screen flex flex-col bg-dark-bg dark:bg-dark-bg light:bg-light-bg text-dark-text dark:text-dark-text light:text-light-text transition-colors duration-200">
     <!-- Sticky Header -->
     <HeaderNav />
 
