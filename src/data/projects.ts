@@ -69,7 +69,7 @@ export const projects: ProjectItem[] = [
       'Constructed distributed two-phase commit and reversal logic to prevent orphan transaction states.',
       'Implemented mutual TLS socket connections and message authentication code (MAC) cryptography.'
     ],
-    technologies: ['Java', 'Spring Boot', 'ISO 8583', 'PostgreSQL', 'Kafka', 'Redis', 'OpenTelemetry'],
+    technologies: ['Java', 'Spring Boot', 'ISO 8583', 'PostgreSQL', 'Redis', 'OpenTelemetry'],
     featured: true,
     verifiedOutcomes: [
       'High-availability transactional throughput handling peak national transfer loads.',
@@ -115,7 +115,7 @@ export const projects: ProjectItem[] = [
       'Designed transactional compensator to safely handle transient network partitions and rollback orphaned holds.',
       'Engineered Redis-backed distributed locks to prevent race conditions during simultaneous transfer requests.'
     ],
-    technologies: ['Java', 'Spring Boot', 'Redis', 'PostgreSQL', 'Kafka'],
+    technologies: ['Java', 'Spring Boot', 'Redis', 'PostgreSQL', 'REST APIs'],
     featured: true,
     verifiedOutcomes: [
       'Reliable 24/7 liquidity injection into mobile financial ecosystems with 99.99% transaction reliability.',
@@ -161,7 +161,7 @@ export const projects: ProjectItem[] = [
       'Engineered recurring debit scheduler ensuring accurate installment timing and interest accrual recording.',
       'Created early liquidation and maturity settlement payout engines.'
     ],
-    technologies: ['Java', 'Spring Boot', 'PostgreSQL', 'Kafka', 'Docker'],
+    technologies: ['Java', 'Spring Boot', 'PostgreSQL', 'Docker', 'REST APIs'],
     featured: false,
     verifiedOutcomes: [
       'Expanded formal banking product reach to hundreds of thousands of retail users.',
@@ -491,9 +491,9 @@ export const projects: ProjectItem[] = [
     contributions: [
       'Explored Project Reactor and Spring WebFlux benchmarks under simulated high-concurrency workloads.',
       'Benchmarked Redis Redlock algorithms versus database optimistic concurrency.',
-      'Implemented prototype event-sourcing ledger with Kafka event streams.'
+      'Implemented prototype event-sourcing ledger with reactive asynchronous streams.'
     ],
-    technologies: ['Java 21', 'Spring WebFlux', 'Kafka', 'Redis', 'Docker', 'PostgreSQL'],
+    technologies: ['Java 21', 'Reactive Java', 'Spring WebFlux', 'Redis', 'Docker', 'PostgreSQL'],
     featured: false,
     isPersonal: true,
     verifiedOutcomes: [

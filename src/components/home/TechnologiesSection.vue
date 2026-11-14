@@ -125,8 +125,8 @@ const prominentTechnologies = [
     subtext: 'ACID Data Layer',
   },
   {
-    name: 'Apache Kafka',
-    subtext: 'Event Streaming',
+    name: 'Docker',
+    subtext: 'Containers & Cloud',
   },
   {
     name: 'Redis',

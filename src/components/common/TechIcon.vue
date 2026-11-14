@@ -23,8 +23,8 @@
       <path d="M3 12c0 1.66 4 3 9 3s9-1.34 9-3" />
     </svg>
 
-    <!-- Kafka / Kinesis -->
-    <svg v-else-if="name.toLowerCase().includes('kafka') || name.toLowerCase().includes('kinesis')" class="w-full h-full" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Kinesis / Event Streaming -->
+    <svg v-else-if="name.toLowerCase().includes('kinesis')" class="w-full h-full" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
       <circle cx="18" cy="5" r="3" />
       <circle cx="6" cy="12" r="3" />
       <circle cx="18" cy="19" r="3" />

@@ -69,7 +69,7 @@ export const profile: ProfileInfo = {
       id: 'arch',
       value: 'Backend',
       label: 'Architecture & Integration',
-      description: 'Reactive microservices, Kafka event streams, and distributed observability'
+      description: 'Reactive Java microservices, ISO 8583 switches, and distributed observability'
     }
   ]
 }

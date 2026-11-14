@@ -37,9 +37,9 @@ export const experiences: ExperienceItem[] = [
     contributions: [
       'Architected ISO 8583 transaction switching for National Payment Switch Bangladesh (NPSB) and Direct Charge merchant payment flows.',
       'Designed Bank-to-bKash and Digital Savings / DPS backend pipelines with strict ACID compliance and distributed idempotency.',
-      'Adopted reactive microservices with Spring WebFlux, Apache Kafka, and OpenTelemetry distributed tracing.'
+      'Adopted reactive microservices with Spring WebFlux, distributed observability, and OpenTelemetry tracing.'
     ],
-    technologies: ['Java', 'Spring Boot', 'Spring WebFlux', 'Kafka', 'PostgreSQL', 'Redis', 'Docker', 'OpenTelemetry'],
+    technologies: ['Java', 'Reactive Java', 'Spring Boot', 'Spring WebFlux', 'ISO 8583', 'PostgreSQL', 'Redis', 'Docker', 'OpenTelemetry'],
     achievements: [
       'Delivered mission-critical financial switch integrations with zero data loss.',
       'Mentored backend squads on code quality and automated testing standards.'

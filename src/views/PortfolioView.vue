@@ -4,14 +4,23 @@
       
       <!-- 1. LinkedIn-Style Profile Header Card -->
       <section class="rounded-2xl bg-white dark:bg-dark-surface border border-slate-200 dark:border-dark-border overflow-hidden shadow-xs">
-        <div class="h-24 sm:h-28 bg-gradient-to-r from-slate-800 via-slate-700 to-brand-800 dark:from-dark-elevated dark:via-slate-800 dark:to-brand-900"></div>
+        <div class="relative h-28 sm:h-36 w-full overflow-hidden bg-slate-200 dark:bg-dark-elevated border-b border-slate-200/70 dark:border-dark-border">
+          <img
+            :src="coverBanner"
+            alt="Minimalist architectural cover banner"
+            referrerpolicy="no-referrer"
+            class="w-full h-full object-cover object-center"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-slate-900/15 via-transparent to-transparent dark:from-slate-950/35 pointer-events-none"></div>
+        </div>
 
-        <div class="px-5 sm:px-7 pb-6">
+        <div class="relative z-10 px-5 sm:px-7 pb-6">
           <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 -mt-10 sm:-mt-12 mb-4">
             <div class="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl overflow-hidden bg-slate-900 border-4 border-white dark:border-dark-surface shadow-sm shrink-0">
               <img
                 src="/assets/aistudio/WhatsApp_Image_2026-11-14_at_4.11.58_PM_12d440c2.jpeg"
                 alt="Avijit Bairagi"
+                referrerpolicy="no-referrer"
                 class="w-full h-full object-cover object-top"
               />
             </div>
@@ -355,20 +364,44 @@
         </div>
       </section>
 
-      <!-- 5. LinkedIn-Style Skills Card -->
-      <section class="rounded-2xl bg-white dark:bg-dark-surface border border-slate-200 dark:border-dark-border p-5 sm:p-7 shadow-xs">
-        <h2 class="text-lg font-bold text-slate-900 dark:text-white mb-4">
-          Skills
-        </h2>
-
-        <div class="flex flex-wrap gap-2">
-          <span
-            v-for="skill in coreSkills"
-            :key="skill"
-            class="px-3 py-1 rounded-full text-xs font-medium bg-slate-100 dark:bg-dark-elevated text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-dark-border"
-          >
-            {{ skill }}
+      <!-- 5. LinkedIn-Style Compact Skills Card (Shared Pill Design) -->
+      <section class="rounded-2xl bg-white dark:bg-dark-surface border border-slate-200 dark:border-dark-border p-5 sm:p-6 shadow-xs">
+        <div class="flex items-center justify-between gap-3 mb-4">
+          <h2 class="text-lg font-bold text-slate-900 dark:text-white">
+            Skills
+          </h2>
+          <span class="text-xs font-mono text-slate-500 dark:text-slate-400">
+            {{ totalSkillsCount }} skills
           </span>
+        </div>
+
+        <div class="divide-y divide-slate-200/70 dark:divide-dark-border">
+          <div
+            v-for="(group, gIdx) in skillGroups"
+            :key="group.title"
+            class="flex flex-col sm:flex-row sm:items-center gap-2.5 sm:gap-4"
+            :class="gIdx === 0 ? 'pb-3' : gIdx === skillGroups.length - 1 ? 'pt-3' : 'py-3'"
+          >
+            <!-- Domain Label -->
+            <div class="sm:w-44 shrink-0 flex items-center gap-2">
+              <component :is="group.icon" class="w-3.5 h-3.5 shrink-0" :class="group.iconColor" />
+              <h3 class="text-xs font-semibold text-slate-800 dark:text-slate-200">
+                {{ group.title }}
+              </h3>
+            </div>
+
+            <!-- Shared Pill Style Items -->
+            <div class="flex-1 flex flex-wrap items-center gap-1.5">
+              <span
+                v-for="skill in group.items"
+                :key="skill"
+                class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-50 dark:bg-dark-elevated hover:bg-slate-100 dark:hover:bg-dark-hover text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-dark-border font-medium text-xs transition-colors"
+              >
+                <span class="w-1.5 h-1.5 rounded-full shrink-0" :class="group.dotColor"></span>
+                <span>{{ skill }}</span>
+              </span>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -385,11 +418,12 @@
 <script setup lang="ts">
 import { ref, computed, onMounted } from 'vue'
 import { useRoute } from 'vue-router'
-import { Mail, Linkedin, Github, ExternalLink, ChevronLeft, ChevronRight } from 'lucide-vue-next'
+import { Mail, Linkedin, Github, ExternalLink, ChevronLeft, ChevronRight, Server, Bot, Database, Cloud, Users, Globe } from 'lucide-vue-next'
 import { experiences } from '@/data/experience'
 import { projects, type ProjectItem } from '@/data/projects'
 import CompanyLogo from '@/components/common/CompanyLogo.vue'
 import ProjectDetailModal from '@/components/portfolio/ProjectDetailModal.vue'
+import coverBanner from '@/assets/images/profile_cover_banner_1794653314989.jpg'
 
 const route = useRoute()
 const activeOrg = ref<string>('all')
@@ -407,23 +441,101 @@ const orgFilters = [
   { id: 'itogether', label: 'Together Initiative Limited' }
 ]
 
-const coreSkills = [
-  'Java',
-  'Spring Boot',
-  'Spring WebFlux',
-  'Spring Security',
-  'ISO 8583',
-  'Microservices',
-  'Apache Kafka',
-  'PostgreSQL',
-  'Oracle Database',
-  'MySQL',
-  'Redis',
-  'Docker',
-  'AWS',
-  'OpenTelemetry',
-  'REST APIs'
+const skillGroups = [
+  {
+    title: 'Leadership & Delivery',
+    icon: Users,
+    iconColor: 'text-rose-600 dark:text-rose-400',
+    dotColor: 'bg-rose-500',
+    items: [
+      'Project Manager',
+      'Team Lead',
+      'Sprint Planning',
+      'System Architecture',
+      'Agile / Scrum',
+      'Mentoring'
+    ]
+  },
+  {
+    title: 'Cloud & Observability',
+    icon: Cloud,
+    iconColor: 'text-amber-600 dark:text-amber-400',
+    dotColor: 'bg-amber-500',
+    items: [
+      'AWS',
+      'Docker',
+      'Observability',
+      'OpenTelemetry',
+      'Micrometer',
+      'Distributed Tracing',
+      'Jenkins',
+      'Linux & Git'
+    ]
+  },
+  {
+    title: 'AI & Agentic',
+    icon: Bot,
+    iconColor: 'text-violet-600 dark:text-violet-400',
+    dotColor: 'bg-violet-500',
+    items: [
+      'AI Engineering',
+      'Agentic Programming',
+      'Prompt Engineering',
+      'AI Workflow Automation'
+    ]
+  },
+  {
+    title: 'Backend Engineering',
+    icon: Server,
+    iconColor: 'text-sky-600 dark:text-sky-400',
+    dotColor: 'bg-sky-500',
+    items: [
+      'Java',
+      'Reactive Java',
+      'Spring Boot',
+      'Spring WebFlux',
+      'Spring Security',
+      'ISO 8583',
+      'Microservices',
+      'RabbitMQ',
+      'REST APIs',
+      'SOAP API'
+    ]
+  },
+  {
+    title: 'Database & Caching',
+    icon: Database,
+    iconColor: 'text-emerald-600 dark:text-emerald-400',
+    dotColor: 'bg-emerald-500',
+    items: [
+      'Database',
+      'PostgreSQL',
+      'Oracle Database',
+      'MySQL',
+      'DynamoDB',
+      'Redis',
+      'R2DBC'
+    ]
+  },
+  {
+    title: 'Web & Frontend',
+    icon: Globe,
+    iconColor: 'text-teal-600 dark:text-teal-400',
+    dotColor: 'bg-teal-500',
+    items: [
+      'JS',
+      'Vue JS',
+      'TypeScript',
+      'HTML5',
+      'CSS3',
+      'Tailwind CSS'
+    ]
+  }
 ]
+
+const totalSkillsCount = computed(() =>
+  skillGroups.reduce((acc, group) => acc + group.items.length, 0)
+)
 
 const filteredProjects = computed(() => {
   const workProjects = projects.filter(p => p.organizationId !== 'personal')

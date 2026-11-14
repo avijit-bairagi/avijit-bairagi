@@ -44,7 +44,7 @@ export const services: ServiceItem[] = [
     number: '05',
     title: 'Distributed Systems Engineering',
     description: 'Building applications that involve messaging, asynchronous workflows, caching, and service-to-service communication.',
-    highlights: ['Apache Kafka event streaming & consumer groups', 'Distributed Redis caching & locking strategies', 'Asynchronous task orchestration & queueing'],
+    highlights: ['AWS Kinesis & event-driven stream processing', 'Distributed Redis caching & locking strategies', 'Asynchronous task orchestration & queueing'],
     icon: 'cpu'
   },
   {
