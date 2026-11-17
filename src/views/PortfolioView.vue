@@ -122,10 +122,9 @@
                   :href="exp.website"
                   target="_blank"
                   rel="noopener noreferrer"
-                  class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-100 dark:bg-dark-elevated hover:border-brand-500/40 border border-slate-200 dark:border-dark-border text-xs font-semibold text-slate-900 dark:text-white transition-colors"
+                  class="inline-flex items-center px-3 py-1 rounded-full bg-slate-100 dark:bg-dark-elevated hover:border-brand-500/40 border border-slate-200 dark:border-dark-border text-xs font-semibold text-slate-900 dark:text-white transition-colors"
                 >
-                  <span>{{ exp.company }}</span>
-                  <ExternalLink class="w-3 h-3 text-slate-400 shrink-0" />
+                  {{ exp.company }}
                 </a>
 
                 <span
@@ -140,10 +139,9 @@
                     :href="partner.website"
                     target="_blank"
                     rel="noopener noreferrer"
-                    class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white dark:bg-dark-bg hover:border-brand-500/40 hover:text-brand-600 dark:hover:text-brand-400 border border-slate-200 dark:border-dark-border text-xs font-medium text-slate-700 dark:text-slate-200 transition-colors"
+                    class="inline-flex items-center px-3 py-1 rounded-full bg-white dark:bg-dark-bg hover:border-brand-500/40 hover:text-brand-600 dark:hover:text-brand-400 border border-slate-200 dark:border-dark-border text-xs font-medium text-slate-700 dark:text-slate-200 transition-colors"
                   >
-                    <span>{{ partner.name }}</span>
-                    <ExternalLink class="w-3 h-3 text-slate-400 shrink-0" />
+                    {{ partner.name }}
                   </a>
                 </span>
               </div>
