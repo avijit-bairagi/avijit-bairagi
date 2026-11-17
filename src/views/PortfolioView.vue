@@ -82,11 +82,11 @@
           <div
             v-for="(exp, idx) in experiences"
             :key="exp.id"
-            class="flex items-start gap-4"
+            class="flex flex-col sm:flex-row sm:items-start gap-3 sm:gap-4"
             :class="idx === 0 ? 'pb-6' : idx === experiences.length - 1 ? 'pt-6' : 'py-6'"
           >
-            <!-- Primary Employer Emblem -->
-            <div class="pt-0.5">
+            <!-- Desktop Employer Emblem -->
+            <div class="hidden sm:block pt-0.5 shrink-0">
               <CompanyLogo
                 :logo-key="exp.logoKey"
                 :fallback-text="exp.company"
@@ -96,48 +96,59 @@
 
             <!-- Role & Collaboration Details -->
             <div class="flex-1 min-w-0">
-              <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
-                <h3 class="text-base font-bold text-slate-900 dark:text-white leading-snug">
-                  {{ exp.role }}
-                </h3>
-                <span class="text-xs font-mono text-slate-500 dark:text-slate-400 shrink-0">
-                  {{ exp.period }}
-                </span>
+              <!-- Role & Period Header (with compact mobile emblem) -->
+              <div class="flex items-start sm:items-center gap-3 sm:gap-2">
+                <div class="sm:hidden shrink-0">
+                  <CompanyLogo
+                    :logo-key="exp.logoKey"
+                    :fallback-text="exp.company"
+                    :icon-only="true"
+                    size="sm"
+                  />
+                </div>
+                <div class="flex-1 min-w-0 flex flex-col sm:flex-row sm:items-center justify-between gap-0.5 sm:gap-2">
+                  <h3 class="text-base font-bold text-slate-900 dark:text-white leading-snug">
+                    {{ exp.role }}
+                  </h3>
+                  <span class="text-xs font-mono text-slate-500 dark:text-slate-400 shrink-0">
+                    {{ exp.period }}
+                  </span>
+                </div>
               </div>
 
-              <!-- Employer × Client Visual Partnership Strip -->
-              <div class="mt-2 flex flex-wrap items-center gap-1.5">
+              <!-- Employer × Client Responsive Partnership Strip -->
+              <div class="mt-2.5 flex flex-wrap items-center gap-1.5 sm:gap-2">
                 <a
                   :href="exp.website"
                   target="_blank"
                   rel="noopener noreferrer"
-                  class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-dark-elevated hover:border-brand-500/40 border border-slate-200 dark:border-dark-border text-xs font-semibold text-slate-800 dark:text-slate-100 transition-colors"
+                  class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-100 dark:bg-dark-elevated hover:border-brand-500/40 border border-slate-200 dark:border-dark-border text-xs font-semibold text-slate-900 dark:text-white transition-colors"
                 >
-                  {{ exp.company }}
+                  <span>{{ exp.company }}</span>
+                  <ExternalLink class="w-3 h-3 text-slate-400 shrink-0" />
                 </a>
 
-                <template v-for="partner in exp.partners" :key="partner.name">
-                  <span class="text-xs font-mono font-bold text-brand-600 dark:text-brand-400 px-0.5">
+                <span
+                  v-for="partner in exp.partners"
+                  :key="partner.name"
+                  class="inline-flex items-center gap-1.5 sm:gap-2"
+                >
+                  <span class="text-xs font-mono font-bold text-brand-600 dark:text-brand-400" aria-hidden="true">
                     &times;
                   </span>
                   <a
                     :href="partner.website"
                     target="_blank"
                     rel="noopener noreferrer"
-                    class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-slate-50 dark:bg-dark-bg hover:border-brand-500/40 border border-slate-200 dark:border-dark-border text-xs font-medium text-slate-700 dark:text-slate-200 transition-colors"
+                    class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white dark:bg-dark-bg hover:border-brand-500/40 hover:text-brand-600 dark:hover:text-brand-400 border border-slate-200 dark:border-dark-border text-xs font-medium text-slate-700 dark:text-slate-200 transition-colors"
                   >
-                    <CompanyLogo
-                      :logo-key="partner.logoKey"
-                      :fallback-text="partner.name"
-                      :icon-only="true"
-                      size="xs"
-                    />
                     <span>{{ partner.name }}</span>
+                    <ExternalLink class="w-3 h-3 text-slate-400 shrink-0" />
                   </a>
-                </template>
+                </span>
               </div>
 
-              <div class="text-xs text-slate-500 dark:text-slate-400 mt-1.5">
+              <div class="text-xs text-slate-500 dark:text-slate-400 mt-2">
                 {{ exp.location }} &middot; {{ exp.domain }}
               </div>
 
@@ -145,7 +156,7 @@
                 {{ exp.summary }}
               </p>
 
-              <ul class="mt-2.5 space-y-1 text-sm text-slate-600 dark:text-slate-300">
+              <ul class="mt-2.5 space-y-1.5 text-sm text-slate-600 dark:text-slate-300">
                 <li
                   v-for="(item, cIdx) in exp.contributions"
                   :key="cIdx"
