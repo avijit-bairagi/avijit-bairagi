@@ -218,35 +218,44 @@
         </div>
 
         <!-- 5 Projects List -->
-        <div class="space-y-2.5">
+        <div class="space-y-3">
           <button
             v-for="project in paginatedProjects"
             :key="project.id"
             type="button"
             @click="selectedProject = project"
-            class="w-full text-left group p-3.5 sm:p-4 rounded-xl bg-slate-50/70 dark:bg-dark-elevated/40 hover:bg-white dark:hover:bg-dark-elevated border border-slate-200/80 dark:border-dark-border hover:border-brand-500/40 dark:hover:border-brand-500/40 transition-all flex items-start gap-3.5 shadow-2xs hover:shadow-xs focus:outline-none"
+            class="w-full text-left group p-4 rounded-xl bg-slate-50/70 dark:bg-dark-elevated/40 hover:bg-white dark:hover:bg-dark-elevated border border-slate-200/80 dark:border-dark-border hover:border-brand-500/40 dark:hover:border-brand-500/40 transition-all shadow-2xs hover:shadow-xs focus:outline-none flex flex-col sm:flex-row sm:items-start gap-2.5 sm:gap-3.5"
           >
-            <div class="pt-0.5 shrink-0">
-              <CompanyLogo
-                :logo-key="project.organizationId"
-                :fallback-text="project.organizationName"
-                :icon-only="true"
-                size="sm"
-              />
+            <!-- Top header on mobile / Left logo on desktop -->
+            <div class="flex items-center justify-between gap-3 sm:block sm:pt-0.5 shrink-0">
+              <div class="flex items-center gap-2.5 min-w-0">
+                <CompanyLogo
+                  :logo-key="project.organizationId"
+                  :fallback-text="project.organizationName"
+                  :icon-only="true"
+                  size="sm"
+                />
+                <div class="sm:hidden min-w-0">
+                  <div class="text-xs font-semibold text-slate-700 dark:text-slate-200 truncate">
+                    {{ project.organizationName }}
+                  </div>
+                  <div class="text-[11px] font-mono text-slate-500 dark:text-slate-400 truncate">
+                    {{ project.domain.split('·')[0].trim() }}
+                  </div>
+                </div>
+              </div>
+
+              <ChevronRight class="w-4 h-4 text-slate-400 group-hover:text-brand-600 dark:group-hover:text-brand-400 shrink-0 sm:hidden transition-colors" />
             </div>
 
+            <!-- Main Project Details -->
             <div class="flex-1 min-w-0 space-y-1">
-              <div class="flex flex-wrap items-center justify-between gap-2">
-                <div class="flex flex-wrap items-center gap-2 min-w-0">
-                  <h3 class="text-sm sm:text-base font-bold text-slate-900 dark:text-white group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors">
-                    {{ project.title }}
-                  </h3>
-                  <span class="text-xs font-medium text-slate-500 dark:text-slate-400">
-                    &middot; {{ project.organizationName }}
-                  </span>
-                </div>
-                <span class="text-[11px] font-mono text-slate-500 dark:text-slate-400 hidden sm:inline shrink-0">
-                  {{ project.domain.split('·')[0].trim() }}
+              <div class="flex flex-wrap items-baseline justify-between gap-x-3 gap-y-0.5">
+                <h3 class="text-[15px] sm:text-base font-bold text-slate-900 dark:text-white group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors leading-snug">
+                  {{ project.title }}
+                </h3>
+                <span class="hidden sm:inline text-[11px] font-mono text-slate-500 dark:text-slate-400 shrink-0">
+                  {{ project.organizationName }} &middot; {{ project.domain.split('·')[0].trim() }}
                 </span>
               </div>
 
@@ -259,7 +268,7 @@
               </div>
             </div>
 
-            <ChevronRight class="w-4 h-4 text-slate-400 group-hover:text-brand-600 dark:group-hover:text-brand-400 shrink-0 mt-1 transition-colors" />
+            <ChevronRight class="hidden sm:block w-4 h-4 text-slate-400 group-hover:text-brand-600 dark:group-hover:text-brand-400 shrink-0 mt-1 transition-colors" />
           </button>
         </div>
 
@@ -272,13 +281,13 @@
             @click="prevPage"
             :disabled="currentPage === 1"
             type="button"
-            class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-medium border border-slate-200 dark:border-dark-border transition-colors"
+            class="inline-flex items-center gap-1 px-2.5 sm:px-3 py-1.5 rounded-lg text-xs font-medium border border-slate-200 dark:border-dark-border transition-colors"
             :class="currentPage === 1
               ? 'opacity-40 cursor-not-allowed text-slate-400'
               : 'bg-white dark:bg-dark-elevated text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-dark-hover'"
           >
             <ChevronLeft class="w-3.5 h-3.5" />
-            <span>Previous</span>
+            <span class="hidden sm:inline">Previous</span>
           </button>
 
           <div class="flex items-center gap-1">
@@ -300,12 +309,12 @@
             @click="nextPage"
             :disabled="currentPage === totalPages"
             type="button"
-            class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-medium border border-slate-200 dark:border-dark-border transition-colors"
+            class="inline-flex items-center gap-1 px-2.5 sm:px-3 py-1.5 rounded-lg text-xs font-medium border border-slate-200 dark:border-dark-border transition-colors"
             :class="currentPage === totalPages
               ? 'opacity-40 cursor-not-allowed text-slate-400'
               : 'bg-white dark:bg-dark-elevated text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-dark-hover'"
           >
-            <span>Next</span>
+            <span class="hidden sm:inline">Next</span>
             <ChevronRight class="w-3.5 h-3.5" />
           </button>
         </div>
@@ -319,7 +328,7 @@
 
         <div class="divide-y divide-slate-200 dark:divide-dark-border">
           <!-- Institute of Information Technology (IIT), University of Dhaka -->
-          <div class="flex items-start gap-4 pb-5">
+          <div class="flex flex-col sm:flex-row sm:items-start gap-3 sm:gap-4 pb-5">
             <a
               href="https://iit.du.ac.bd/"
               target="_blank"
@@ -337,10 +346,10 @@
                 href="https://iit.du.ac.bd/"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="inline-flex items-center gap-1.5 text-base font-bold text-slate-900 dark:text-white hover:text-brand-600 dark:hover:text-brand-400 transition-colors"
+                class="inline-flex items-start sm:items-center gap-1.5 text-base font-bold text-slate-900 dark:text-white hover:text-brand-600 dark:hover:text-brand-400 transition-colors leading-snug"
               >
                 <span>Institute of Information Technology (IIT), University of Dhaka</span>
-                <ExternalLink class="w-3.5 h-3.5 text-slate-400 shrink-0" />
+                <ExternalLink class="w-3.5 h-3.5 text-slate-400 shrink-0 mt-1 sm:mt-0" />
               </a>
               <div class="text-sm text-slate-700 dark:text-slate-200 font-medium mt-0.5">
                 Postgraduate Studies &middot; Information Technology &amp; Software Engineering
@@ -352,7 +361,7 @@
           </div>
 
           <!-- Gopalganj Science and Technology University (GSTU) -->
-          <div class="flex items-start gap-4 pt-5">
+          <div class="flex flex-col sm:flex-row sm:items-start gap-3 sm:gap-4 pt-5">
             <a
               href="https://gstu.edu.bd/s/"
               target="_blank"
@@ -370,10 +379,10 @@
                 href="https://gstu.edu.bd/s/"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="inline-flex items-center gap-1.5 text-base font-bold text-slate-900 dark:text-white hover:text-brand-600 dark:hover:text-brand-400 transition-colors"
+                class="inline-flex items-start sm:items-center gap-1.5 text-base font-bold text-slate-900 dark:text-white hover:text-brand-600 dark:hover:text-brand-400 transition-colors leading-snug"
               >
                 <span>Gopalganj Science and Technology University (GSTU)</span>
-                <ExternalLink class="w-3.5 h-3.5 text-slate-400 shrink-0" />
+                <ExternalLink class="w-3.5 h-3.5 text-slate-400 shrink-0 mt-1 sm:mt-0" />
               </a>
               <div class="text-sm text-slate-700 dark:text-slate-200 font-medium mt-0.5">
                 Bachelor of Science in Computer Science &amp; Engineering (B.Sc. in CSE)
