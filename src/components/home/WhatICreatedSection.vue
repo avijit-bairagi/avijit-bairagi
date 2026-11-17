@@ -28,16 +28,14 @@
             </p>
           </a>
 
-          <!-- Interactive Preview Card (Daylo, Smart Hisab) -->
-          <button
+          <!-- Static Card (Daylo, Smart Hisab) -->
+          <div
             v-else
-            type="button"
-            @click="activeCreation = item"
-            class="group text-left p-5 rounded-xl bg-white dark:bg-dark-surface border border-slate-200 dark:border-dark-border hover:border-slate-300 dark:hover:border-slate-600 transition-all shadow-xs hover:shadow-sm focus:outline-none"
+            class="text-left p-5 rounded-xl bg-white dark:bg-dark-surface border border-slate-200 dark:border-dark-border shadow-xs"
           >
             <div class="flex items-center gap-3 mb-3">
               <CreationIcon :icon-key="item.iconKey" />
-              <h3 class="text-base font-bold text-slate-900 dark:text-white group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors">
+              <h3 class="text-base font-bold text-slate-900 dark:text-white">
                 {{ item.name }}
               </h3>
             </div>
@@ -45,24 +43,15 @@
             <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
               {{ item.description }}
             </p>
-          </button>
+          </div>
         </template>
       </div>
-
-      <CreationPreviewModal
-        :creation="activeCreation"
-        @close="activeCreation = null"
-      />
     </div>
   </section>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
 import { ExternalLink } from 'lucide-vue-next'
-import { creationsList, type CreatedItem } from '@/data/creations'
+import { creationsList } from '@/data/creations'
 import CreationIcon from '@/components/home/CreationIcon.vue'
-import CreationPreviewModal from '@/components/home/CreationPreviewModal.vue'
-
-const activeCreation = ref<CreatedItem | null>(null)
 </script>

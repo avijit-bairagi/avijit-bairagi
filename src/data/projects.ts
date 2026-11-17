@@ -1,7 +1,7 @@
 export interface ProjectItem {
   id: string
   title: string
-  organizationId: 'inument' | 'bkash' | 'brac-bank' | 'robi' | 'beximco' | 'itogether' | 'personal'
+  organizationId: 'bkash' | 'brac-bank' | 'robi' | 'beximco' | 'itogether' | 'personal'
   organizationName: string
   organizationRelationship: 'Employer (Direct Employment)' | 'Project Contribution' | 'Personal Research'
   domain: string
@@ -27,55 +27,7 @@ export const projectCategories = [
 ] as const
 
 export const projects: ProjectItem[] = [
-  // --- INUMENT SOLUTIONS LIMITED (Employer) ---
-  {
-    id: 'inument-architecture',
-    title: 'System Architecture & Design',
-    organizationId: 'inument',
-    organizationName: 'Inument',
-    organizationRelationship: 'Employer (Direct Employment)',
-    domain: 'Fintech Backend & Framework Architecture',
-    categories: ['enterprise', 'fintech'],
-    shortDescription: 'Core architectural standards, reactive microservices blueprints, and secure payment foundations.',
-    fullDescription: 'Technical leadership defining the backend microservice architecture, shared libraries, cryptographic security standards, and CI/CD validation patterns across engineering squads at Inument Solutions.',
-    businessContext: 'High-volume financial applications require consistent architectural standards, zero-trust security postures, and repeatable deployment automation.',
-    contributions: [
-      'Designed base reactive microservice blueprints using Spring WebFlux and Java 21.',
-      'Established distributed tracing standards with OpenTelemetry and unified Prometheus metrics.',
-      'Implemented automated database migration, test container harnesses, and code review governance.'
-    ],
-    technologies: ['Java 21', 'Spring Boot', 'Spring WebFlux', 'Docker', 'OpenTelemetry', 'PostgreSQL', 'Git'],
-    featured: true,
-    verifiedOutcomes: [
-      'Standardized microservices architecture accelerating deployment velocity across client deliverables.',
-      'Maintained 100% adherence to financial security and cryptographic logging practices.'
-    ]
-  },
-  {
-    id: 'inument-security-auditing',
-    title: 'Project Security & Audit Compliance',
-    organizationId: 'inument',
-    organizationName: 'Inument',
-    organizationRelationship: 'Employer (Direct Employment)',
-    domain: 'Fintech Security · Access Control & Auditing',
-    categories: ['enterprise', 'fintech'],
-    shortDescription: 'End-to-end application security hardening, RBAC enforcement, and immutable audit logging for financial systems.',
-    fullDescription: 'Cross-cutting security and compliance framework implementing defense-in-depth API protection, fine-grained role-based access control, cryptographic payload integrity, and tamper-evident audit trails across fintech services.',
-    businessContext: 'Regulated financial platforms require strict access governance, sensitive data masking, and verifiable audit trails for internal and external compliance reviews.',
-    contributions: [
-      'Implemented fine-grained RBAC, OAuth2/JWT enforcement, and mutual TLS (mTLS) across core financial APIs.',
-      'Engineered immutable audit trail pipelines capturing user actions, approval chains, and settlement state transitions.',
-      'Built PII masking, sensitive field encryption, and automated vulnerability/code-security checks in CI/CD.'
-    ],
-    technologies: ['Java', 'Spring Security', 'PostgreSQL', 'OpenTelemetry', 'Docker', 'AWS'],
-    featured: true,
-    verifiedOutcomes: [
-      'Enforced consistent authentication, authorization, and auditability across multi-institution financial integrations.',
-      'Streamlined regulatory audit readiness with searchable, tamper-evident activity logs.'
-    ]
-  },
-
-  // --- bKash (Project Contributions) ---
+  // --- bKash (Project Contributions — via Inument & Together Initiative Limited) ---
   {
     id: 'bkash-npsb',
     title: 'NPSB (National Payment Switch Bangladesh)',
@@ -84,88 +36,90 @@ export const projects: ProjectItem[] = [
     organizationRelationship: 'Project Contribution',
     domain: 'Fintech · National Payment Switching',
     categories: ['fintech', 'banking', 'payment'],
-    shortDescription: 'ISO 8583-based financial transaction switch enabling interoperability between banks and MFS wallets.',
-    fullDescription: 'High-throughput payment switch handling bi-directional fund transfers between Mobile Financial Services (MFS) and commercial banks via the National Payment Switch Bangladesh (NPSB).',
-    businessContext: 'Real-time inter-bank and wallet fund movement demands sub-second latency tolerances, cryptographic verification, and strict zero-loss transaction reversal mechanisms.',
+    shortDescription: 'ISO 8583 switching for BanglaQR, MFS, and bank transfers through Bangladesh Bank NPSB with strict security and dispute management.',
+    fullDescription: 'High-throughput payment switch connecting bKash with commercial banks and Mobile Financial Services (MFS) through Bangladesh Bank’s National Payment Switch Bangladesh (NPSB), supporting BanglaQR payments, MFS interoperability, real-time bank transfers, and structured dispute management.',
+    businessContext: 'National real-time clearing across banks, MFS wallets, and BanglaQR merchants demands sub-second latency, strict cryptographic security, zero-loss reversal handling, and timely inter-bank dispute resolution.',
     contributions: [
-      'Engineered ISO 8583 message parsing and packing layer with strict BIT-map manipulation.',
-      'Constructed distributed two-phase commit and reversal logic to prevent orphan transaction states.',
-      'Implemented mutual TLS socket connections and message authentication code (MAC) cryptography.'
+      'Engineered ISO 8583 message parsing, packing, and BIT-map validation for BanglaQR, MFS, and bank transfer flows via Bangladesh Bank NPSB.',
+      'Constructed distributed two-phase commit and automated reversal logic to prevent orphan transaction states.',
+      'Enforced strict payment security using mutual TLS socket channels, HSM/MAC cryptography, and signed payload verification.',
+      'Implemented structured dispute management workflows to track, reconcile, and resolve inter-bank and MFS transaction discrepancies.'
     ],
     technologies: ['Java', 'Spring Boot', 'ISO 8583', 'PostgreSQL', 'Redis', 'OpenTelemetry'],
     featured: true,
     verifiedOutcomes: [
-      'High-availability transactional throughput handling peak national transfer loads.',
-      'Zero-orphan transaction state guarantee with automated reversal logic.'
+      'Reliable high-throughput interoperability across BanglaQR merchants, MFS providers, and partner banks.',
+      'Zero-orphan transaction consistency backed by automated reversal, dispute management, and strict cryptographic validation.'
     ]
   },
   {
     id: 'bkash-direct-charge',
-    title: 'Direct Charge Platform',
+    title: 'Direct Charge',
     organizationId: 'bkash',
     organizationName: 'bKash',
     organizationRelationship: 'Project Contribution',
-    domain: 'Payment Systems · Merchant Gateway',
+    domain: 'Payment Systems · Local & Global Merchants',
     categories: ['fintech', 'payment'],
-    shortDescription: 'Local and global merchant payment orchestration, tokenized billing, and automated recurring deductions.',
-    fullDescription: 'Scalable merchant payment gateway facilitating direct account debits, tokenized recurring billing, and cross-border merchant checkouts.',
-    businessContext: 'Enterprise merchants require frictionless customer checkouts with resilient fallbacks, tokenized account security, and real-time webhook confirmations.',
+    shortDescription: 'Tokenized direct-debit payment platform serving local and international merchants including GP, Robi, Uber, Spotify, and Foodpanda.',
+    fullDescription: 'Scalable merchant billing and direct-charge platform supporting seamless account-linked payments and recurring charges for major local and global merchants such as Grameenphone (GP), Robi, Foodpanda, Uber, and Spotify.',
+    businessContext: 'High-volume local and international digital platforms require instant tokenized account binding, secured OTP/PIN customer verification, frictionless one-tap checkouts, and reliable dispute resolution.',
     contributions: [
-      'Architected tokenized payment consent workflows adhering to strict data security standards.',
-      'Engineered asynchronous webhook delivery system with exponential backoff and dead-letter queues.',
-      'Optimized database connection pooling and caching with Redis to sustain flash checkout spikes.'
+      'Architected tokenized consent and direct-charge payment APIs serving local and international merchants (GP, Robi, Foodpanda, Uber, Spotify).',
+      'Built a secured customer verification service authenticating wallet accounts via OTP and PIN before consent binding or payment execution.',
+      'Implemented structured dispute management workflows handling failed debits, chargeback claims, and merchant reconciliation.',
+      'Engineered asynchronous webhook delivery pipelines with exponential backoff and dead-letter queues, backed by Redis caching.'
     ],
     technologies: ['Java', 'Spring Boot', 'Spring Security', 'Redis', 'PostgreSQL', 'Docker'],
     featured: true,
     verifiedOutcomes: [
-      'Sub-300ms API response latency for payment authorization requests.',
-      'Seamless automated recurring debits across premier merchant partners.'
+      'Low-latency authorization supporting millions of recurring and one-tap local/global merchant checkouts.',
+      'Secured OTP/PIN pre-payment customer verification and traceable dispute management across merchant partners.'
     ]
   },
   {
     id: 'bkash-bank-to-wallet',
-    title: 'Bank-to-bKash Integration',
+    title: 'Bank-to-bKash',
     organizationId: 'bkash',
     organizationName: 'bKash',
     organizationRelationship: 'Project Contribution',
-    domain: 'Fintech · Core Fund Addition',
+    domain: 'Fintech · Bank & Wallet Fund Transfers',
     categories: ['fintech', 'banking', 'payment'],
-    shortDescription: 'Real-time retail banking integration empowering customers to transfer liquidity into mobile wallets.',
-    fullDescription: 'Core fund addition pipeline empowering millions of banking customers to securely transfer liquidity from their retail bank accounts directly into mobile wallets.',
-    businessContext: 'Providing unbanked and underbanked populations with immediate liquidity through automated, real-time retail banking integrations.',
+    shortDescription: 'Bidirectional Add Money and Send Money integrations with BRAC Bank, Agrani Bank, and City Bank under strict security.',
+    fullDescription: 'Real-time retail banking integration platform enabling customers to seamlessly Add Money from linked bank accounts to bKash and Send Money from bKash back to partner banks including BRAC Bank, Agrani Bank, and City Bank.',
+    businessContext: 'Real-time movement of funds between commercial bank hosts and mobile wallets requires strict API security, mutual authentication, and atomic rollback guarantees.',
     contributions: [
-      'Implemented secure banking API integrations with dynamic token rotation and mutual TLS handshake.',
-      'Designed transactional compensator to safely handle transient network partitions and rollback orphaned holds.',
-      'Engineered Redis-backed distributed locks to prevent race conditions during simultaneous transfer requests.'
+      'Integrated core Add Money and Send Money APIs with commercial partner banks including BRAC Bank, Agrani Bank, and City Bank.',
+      'Enforced strict security controls with mutual TLS handshakes, dynamic token rotation, payload signing, and encrypted host channels.',
+      'Built transactional compensators and Redis distributed locks to eliminate duplicate debits and recover cleanly from network timeouts.'
     ],
-    technologies: ['Java', 'Spring Boot', 'Redis', 'PostgreSQL', 'REST APIs'],
+    technologies: ['Java', 'Spring Boot', 'Spring Security', 'Redis', 'PostgreSQL', 'REST APIs'],
     featured: true,
     verifiedOutcomes: [
-      'Reliable 24/7 liquidity injection into mobile financial ecosystems with 99.99% transaction reliability.',
-      'Real-time transaction status notifications delivered to banking hosts and mobile wallets.'
+      '24/7 bidirectional fund mobility across BRAC Bank, Agrani Bank, City Bank, and bKash wallets.',
+      'Strict end-to-end security and transaction consistency across commercial banking integrations.'
     ]
   },
   {
     id: 'bkash-payment-gateway',
-    title: 'Payment Gateway',
+    title: 'Online Payment Platform (PGW)',
     organizationId: 'bkash',
     organizationName: 'bKash',
     organizationRelationship: 'Project Contribution',
-    domain: 'Payment Systems · Checkout Acquiring',
+    domain: 'Payment Systems · Customer, Merchant & Loan Payments',
     categories: ['fintech', 'payment'],
-    shortDescription: 'Online merchant checkout gateway supporting web, mobile SDKs, and QR-based payments.',
-    fullDescription: 'High-availability payment checkout service providing e-commerce merchants with seamless payment acceptance, tokenized credentials, and instant callback verifications.',
-    businessContext: 'E-commerce platforms demand dependable checkout gateways that maintain high conversion rates and robust fraud prevention.',
+    shortDescription: 'Enterprise online payment platform powering M2M, M2C, C2M, A2M, and M2A flows across vast merchants and loan platforms.',
+    fullDescription: 'High-availability online payment gateway (PGW) supporting customer and merchant transactions across M2M, M2C, C2M, A2M, and M2A payment models for a vast ecosystem of merchants and digital Loan Platforms, protected by wallet OTP/PIN verification and structured dispute management.',
+    businessContext: 'Serving diverse customer, agent, merchant, and digital lending workflows at national scale demands strong customer verification prior to payment, high-throughput orchestration, and reliable dispute resolution.',
     contributions: [
-      'Constructed idempotent payment processing endpoints preventing duplicate debits.',
-      'Designed webhook notification pipeline with resilient retry policies and HMAC verification.',
-      'Built merchant integration SDKs and developer sandbox testing APIs.'
+      'Built core payment processing services supporting M2M, M2C, C2M, A2M, and M2A transactions for a vast network of online and enterprise merchants and Loan Platforms.',
+      'Developed a secured customer verification service validating wallet ownership via OTP and PIN before executing any payment.',
+      'Implemented structured dispute management workflows to investigate, track, and settle customer and merchant transaction disputes.'
     ],
-    technologies: ['Java', 'Spring Boot', 'Redis', 'PostgreSQL', 'REST APIs'],
-    featured: false,
+    technologies: ['Java', 'Spring Boot', 'Spring Security', 'Redis', 'PostgreSQL', 'REST APIs'],
+    featured: true,
     verifiedOutcomes: [
-      'High conversion checkout throughput across thousands of connected merchant stores.',
-      'Resilient webhook dispatch system ensuring instant merchant order confirmations.'
+      'Powered seamless online payment processing across thousands of merchants and digital loan workflows.',
+      'Strengthened pre-payment wallet security via OTP/PIN verification and streamlined end-to-end dispute resolution.'
     ]
   },
   {
@@ -193,48 +147,25 @@ export const projects: ProjectItem[] = [
   },
   {
     id: 'bkash-settlement',
-    title: 'Settlement & Reconciliation Engine',
+    title: 'Multibank Settlement & Reconciliation Platform',
     organizationId: 'bkash',
     organizationName: 'bKash',
     organizationRelationship: 'Project Contribution',
-    domain: 'Fintech · Multi-party Financial Settlement',
+    domain: 'Fintech · Multi-Bank Institutional Settlement & Clearing',
     categories: ['fintech', 'banking', 'payment'],
-    shortDescription: 'End-of-day financial clearing, multi-party fee calculation, and automated dispute resolution.',
-    fullDescription: 'Automated settlement engine balancing accounts between mobile financial service wallets, merchant partners, and commercial partner banks.',
-    businessContext: 'Financial compliance demands end-of-day zero-variance ledgers and automated discrepancy resolution across millions of daily transactions.',
+    shortDescription: 'Unified multi-bank settlement and end-of-day reconciliation platform across partner banks and financial institutions with SSO, strict security, and auditing.',
+    fullDescription: 'Enterprise multi-bank settlement and reconciliation platform balancing accounts between bKash wallets, partner banks, and financial institutions, secured with Single Sign-On (SSO), strict security policies, and comprehensive auditing.',
+    businessContext: 'Coordinating daily financial settlement positions across multiple banks and financial institutions requires zero-variance reconciliation, centralized identity governance, strict security, and complete auditability.',
     contributions: [
-      'Designed batch clearing pipelines reconciling transaction logs against core banking ledgers.',
-      'Implemented automated fee splitting and commission calculation algorithms.',
-      'Constructed exception handling queues for rapid dispute resolution.'
+      'Designed multi-bank settlement and batch clearing pipelines reconciling transaction logs against partner bank and financial institution ledgers.',
+      'Implemented Single Sign-On (SSO) authentication for centralized institutional and internal portal access.',
+      'Enforced strict application security controls and comprehensive auditing across user actions, financial operations, and settlement states.'
     ],
-    technologies: ['Java', 'Spring Batch', 'PostgreSQL', 'SQL Optimization', 'Linux'],
-    featured: false,
-    verifiedOutcomes: [
-      'Reduced daily financial settlement reconciliation time from hours to minutes.',
-      'Eliminated manual calculation discrepancies across multi-party merchant settlements.'
-    ]
-  },
-  {
-    id: 'bkash-multibank-settlement',
-    title: 'bKash Multibank Settlement (Financial Institutions)',
-    organizationId: 'bkash',
-    organizationName: 'bKash',
-    organizationRelationship: 'Project Contribution',
-    domain: 'Fintech · Multi-Bank Institutional Settlement',
-    categories: ['fintech', 'banking', 'payment'],
-    shortDescription: 'Multi-bank settlement and clearing platform connecting bKash with partner banks and financial institutions.',
-    fullDescription: 'Institutional settlement platform orchestrating multi-bank clearing, fund position reporting, automated fee allocation, and secure maker-checker disbursement across partner commercial banks and financial institutions.',
-    businessContext: 'Coordinating daily liquidity and settlement positions across multiple partner banks and financial institutions requires deterministic ledger consistency, strict access security, and complete auditability.',
-    contributions: [
-      'Engineered multi-bank settlement workflows routing institutional clearing files and automated payout instructions across partner financial institutions.',
-      'Implemented maker-checker approval controls, role-based access security, and encrypted host-to-host settlement channels.',
-      'Built comprehensive transaction audit logs and discrepancy reconciliation reports for banking compliance teams.'
-    ],
-    technologies: ['Java', 'Spring Boot', 'Spring Security', 'PostgreSQL', 'REST APIs', 'Linux'],
+    technologies: ['Java', 'Spring Boot', 'Spring Batch', 'Spring Security', 'PostgreSQL', 'Linux'],
     featured: true,
     verifiedOutcomes: [
-      'Unified multi-bank settlement operations across partner banks and financial institutions on a single auditable workflow.',
-      'Strengthened settlement governance with strict authorization controls and end-to-end audit trails.'
+      'Unified multi-bank clearing and reconciliation across partner financial institutions on a single platform.',
+      'Strengthened governance through SSO integration, strict security controls, and immutable audit trails.'
     ]
   },
 
@@ -297,14 +228,14 @@ export const projects: ProjectItem[] = [
     fullDescription: 'Central bank financial network connector handling high-value Real-Time Gross Settlement (RTGS), intra-bank fund transfer (IFT), and inter-bank clearing.',
     businessContext: 'High-value treasury transactions where any system delay or message drop represents substantial financial risk.',
     contributions: [
-      'Built robust socket communication engine with heartbeats and automated reconnection logic.',
+      'Engineered a reliable queue-based messaging pipeline with guaranteed delivery, retry handling, and dead-letter recovery.',
       'Implemented strict transaction sequencing to prevent out-of-order execution.',
       'Implemented automated reconciliation against central bank end-of-day statements.'
     ],
-    technologies: ['Java', 'Spring Boot', 'Oracle Database', 'TCP/IP Sockets', 'Linux'],
+    technologies: ['Java', 'Spring Boot', 'Oracle Database', 'Message Queues', 'Linux'],
     featured: false,
     verifiedOutcomes: [
-      'Zero-loss message routing for corporate and institutional high-value liquidity settlements.',
+      'Zero-loss queue-based message routing for corporate and institutional high-value liquidity settlements.',
       'Audit-ready logging conforming strictly to regulatory requirements.'
     ]
   },
@@ -358,25 +289,25 @@ export const projects: ProjectItem[] = [
   },
   {
     id: 'robi-ntms',
-    title: 'NTMS (Network Traffic Management System)',
+    title: 'NTMS (National Telecommunication Monitoring Service)',
     organizationId: 'robi',
     organizationName: 'Robi Axiata Limited',
     organizationRelationship: 'Project Contribution',
-    domain: 'Telecom · Network Monitoring & Traffic Routing',
+    domain: 'Telecom · Regulatory Compliance & Monitoring',
     categories: ['telecom', 'enterprise'],
-    shortDescription: 'Operational monitoring and traffic management system for telecom infrastructure management.',
-    fullDescription: 'Network traffic management and monitoring backend analyzing node performance, signaling traffic, and carrier routing anomalies.',
-    businessContext: 'Network operations center (NOC) teams need real-time visualization and alert triggers for cellular infrastructure bottlenecks.',
+    shortDescription: 'Telecom compliance and data integration platform connecting operator systems with the National Telecommunication Monitoring Service.',
+    fullDescription: 'Enterprise telecom compliance and monitoring integration system enabling secure subscriber data verification, query orchestration, and regulatory reporting pipelines for Robi Axiata Limited with the National Telecommunication Monitoring Service (NTMS).',
+    businessContext: 'Telecom operators require secure, auditable, and reliable compliance pipelines to fulfill regulatory monitoring and reporting mandates.',
     contributions: [
-      'Engineered data ingestion pipelines collecting performance counters from network elements.',
-      'Implemented anomaly detection rules alerting engineers to sudden traffic dips or spikes.',
-      'Created backend reporting endpoints for engineering management dashboards.'
+      'Built secure integration and verification services aligned with National Telecommunication Monitoring Service (NTMS) specifications.',
+      'Implemented role-based access control, request auditing, and encrypted data exchange channels.',
+      'Engineered high-throughput query processing and automated compliance reporting pipelines with Spring and MySQL.'
     ],
-    technologies: ['Java', 'Spring', 'MySQL', 'Linux', 'SNMP / Syslog'],
+    technologies: ['Java', 'Spring', 'Spring Security', 'MySQL', 'REST APIs', 'Linux'],
     featured: false,
     verifiedOutcomes: [
-      'Enhanced NOC visibility into telecom base station operational health.',
-      'Accelerated engineering response time to network signaling alarms.'
+      'Delivered compliant, auditable data exchange pipelines with strict security and access governance.',
+      'Automated regulatory verification and reporting turnaround.'
     ]
   },
   {
@@ -400,29 +331,6 @@ export const projects: ProjectItem[] = [
     verifiedOutcomes: [
       'Delivered high-volume campaign dispatches without cellular network congestion.',
       'Provided marketing teams with real-time conversion and uptake metrics.'
-    ]
-  },
-  {
-    id: 'robi-mobile-app',
-    title: 'Mobile Application (Digital Services)',
-    organizationId: 'robi',
-    organizationName: 'Robi Axiata Limited',
-    organizationRelationship: 'Project Contribution',
-    domain: 'Telecom · Mobile Applications & Services',
-    categories: ['telecom', 'enterprise'],
-    shortDescription: 'Digital self-service mobile application backend for subscriber bundle management and recharging.',
-    fullDescription: 'Backend APIs and integration layer connecting consumer mobile apps with core telecom billing and VAS provisioning engines.',
-    businessContext: 'Subscribers require frictionless balance checks, data pack purchases, and account management directly from their smartphones.',
-    contributions: [
-      'Engineered low-latency RESTful APIs serving mobile client requests.',
-      'Implemented caching strategies with Redis to handle simultaneous flash-offer traffic bursts.',
-      'Integrated payment gateways for digital airtime top-ups.'
-    ],
-    technologies: ['Java', 'Spring Boot', 'MySQL', 'Redis', 'REST APIs'],
-    featured: false,
-    verifiedOutcomes: [
-      'Supported millions of mobile app interactions daily with sub-second API latency.',
-      'Streamlined digital pack purchases and self-service subscriber care.'
     ]
   },
 
@@ -475,29 +383,6 @@ export const projects: ProjectItem[] = [
   },
 
   // --- iTogether (Project Contributions) ---
-  {
-    id: 'itogether-mobile-apps',
-    title: 'Mobile Applications',
-    organizationId: 'itogether',
-    organizationName: 'Together Initiative Limited',
-    organizationRelationship: 'Project Contribution',
-    domain: 'Enterprise Mobility · Digital Products',
-    categories: ['enterprise'],
-    shortDescription: 'Cross-platform mobile applications delivering enterprise client mobility and consumer tools.',
-    fullDescription: 'Engineering mobile applications focusing on clean client architecture, responsive offline-first data caching, and seamless backend synchronization.',
-    businessContext: 'Delivering intuitive mobile client experiences for diverse commercial clients.',
-    contributions: [
-      'Implemented client-side caching and SQLite local persistence for offline resiliency.',
-      'Engineered bi-directional data synchronization with backend endpoints.',
-      'Integrated push notifications and real-time status alerts.'
-    ],
-    technologies: ['Mobile Development', 'REST APIs', 'SQLite', 'JSON'],
-    featured: false,
-    verifiedOutcomes: [
-      'Delivered intuitive, responsive mobile apps on target schedules.',
-      'Maintained stable offline functionality in low-connectivity areas.'
-    ]
-  },
   {
     id: 'itogether-web-services',
     title: 'Web Services & API Gateways',

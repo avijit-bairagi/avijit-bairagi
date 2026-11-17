@@ -30,11 +30,11 @@ export const companies: CompanyItem[] = [
     website: 'https://inument.com',
     relationship: 'Employer (Direct Employment)',
     domain: 'Software Engineering & Fintech Services',
-    description: 'Direct employer where I lead backend engineering initiatives, architectural standards, and financial switch integrations.',
+    description: 'Direct employer where I lead backend engineering, architectural standards, and payment platform delivery for bKash.',
     logoKey: 'inument',
     logoText: 'Inument',
     accentColor: '#38BDF8',
-    contributions: ['System Architecture & Design']
+    contributions: ['NPSB', 'Direct Charge', 'Online Payment Gateway']
   },
   {
     id: 'brac-it',
@@ -43,7 +43,7 @@ export const companies: CompanyItem[] = [
     website: 'https://www.bracits.com',
     relationship: 'Employer (Direct Employment)',
     domain: 'Enterprise Banking & IT Solutions',
-    description: 'Enterprise technology engineering delivering corporate banking solutions and core banking integrations.',
+    description: 'Enterprise technology engineering delivering corporate banking solutions and core banking integrations for BRAC Bank PLC.',
     logoKey: 'brac-it',
     logoText: 'BRAC IT Services Limited',
     accentColor: '#0284C7',
@@ -60,7 +60,7 @@ export const companies: CompanyItem[] = [
     logoKey: 'itogether',
     logoText: 'Together Initiative Limited',
     accentColor: '#6366F1',
-    contributions: ['Mobile Applications', 'Web Services']
+    contributions: ['Web Services & API Gateways']
   },
   {
     id: 'bkash',
@@ -73,7 +73,7 @@ export const companies: CompanyItem[] = [
     logoKey: 'bkash',
     logoText: 'bKash',
     accentColor: '#E2136E',
-    contributions: ['NPSB', 'Direct Charge', 'Bank-to-bKash', 'Payment Gateway', 'Savings / DPS', 'Settlement']
+    contributions: ['NPSB', 'Direct Charge', 'Bank-to-bKash', 'Online Payment Platform (PGW)', 'Savings / DPS', 'Multibank Settlement']
   },
   {
     id: 'brac-bank',
@@ -95,11 +95,11 @@ export const companies: CompanyItem[] = [
     website: 'https://www.robi.com.bd',
     relationship: 'Project Contribution',
     domain: 'Telecommunications & Digital Services',
-    description: 'Carrier-scale subscriber workflows, traffic monitoring, high-frequency campaigns, and mobile solutions.',
+    description: 'Carrier-scale subscriber workflows, NTMS compliance integration, and high-frequency campaign solutions.',
     logoKey: 'robi',
     logoText: 'Robi Axiata Limited',
     accentColor: '#ED1C24',
-    contributions: ['Workflow Management', 'NTMS', 'Campaign Management', 'Mobile Application']
+    contributions: ['Workflow Management', 'NTMS', 'Campaign Management']
   },
   {
     id: 'beximco',

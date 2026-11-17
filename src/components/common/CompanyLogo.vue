@@ -4,8 +4,8 @@
       <!-- Real Official Company Logo -->
       <div
         v-if="officialLogoSrc && !imgFailed"
-        :class="containerSizeClass"
-        class="bg-white border border-slate-200/80 dark:border-dark-border flex items-center justify-center overflow-hidden shrink-0"
+        :class="[containerSizeClass, containerBgClass]"
+        class="border flex items-center justify-center overflow-hidden shrink-0"
       >
         <img
           :src="officialLogoSrc"
@@ -73,12 +73,19 @@ const officialLogoSrc = computed(() => {
   return fullLogoMap[props.logoKey] || ''
 })
 
+const containerBgClass = computed(() => {
+  if (props.logoKey === 'brac-it') {
+    return 'bg-slate-900 border-slate-800 dark:border-dark-border'
+  }
+  return 'bg-white border-slate-200/80 dark:border-dark-border'
+})
+
 const containerSizeClass = computed(() => {
   if (props.size === 'xs') return 'h-5 w-auto min-w-[20px] px-1 py-0.5 rounded'
   if (props.size === 'sm') return 'h-9 w-16 px-1.5 py-1 rounded-lg'
   if (props.size === 'card') return 'h-12 w-full max-w-[168px] px-2.5 py-1.5 rounded-lg'
   if (props.size === 'lg') return 'h-14 w-36 px-2.5 py-1.5 rounded-xl'
-  return props.iconOnly ? 'h-11 w-14 p-1.5 rounded-lg' : 'h-8 w-8 p-1 rounded-lg'
+  return props.iconOnly ? 'h-11 w-16 p-1.5 rounded-lg' : 'h-8 w-8 p-1 rounded-lg'
 })
 
 const imgClass = computed(() => {

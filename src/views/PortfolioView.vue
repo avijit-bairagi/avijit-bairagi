@@ -118,23 +118,29 @@
 
               <!-- Employer × Client Responsive Partnership Strip -->
               <div class="mt-2.5 flex flex-wrap items-center gap-1.5 sm:gap-2">
-                <a
-                  :href="exp.website"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="inline-flex items-center px-3 py-1 rounded-full bg-slate-100 dark:bg-dark-elevated hover:border-brand-500/40 border border-slate-200 dark:border-dark-border text-xs font-semibold text-slate-900 dark:text-white transition-colors"
-                >
-                  {{ exp.company }}
-                </a>
+                <span class="inline-flex items-center gap-1.5 sm:gap-2">
+                  <a
+                    :href="exp.website"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="inline-flex items-center px-3 py-1 rounded-full bg-slate-100 dark:bg-dark-elevated hover:border-brand-500/40 border border-slate-200 dark:border-dark-border text-xs font-semibold text-slate-900 dark:text-white transition-colors"
+                  >
+                    {{ exp.company }}
+                  </a>
+                  <span
+                    v-if="exp.partners.length > 0"
+                    class="text-xs font-mono font-bold text-brand-600 dark:text-brand-400"
+                    aria-hidden="true"
+                  >
+                    &times;
+                  </span>
+                </span>
 
                 <span
-                  v-for="partner in exp.partners"
+                  v-for="(partner, pIdx) in exp.partners"
                   :key="partner.name"
                   class="inline-flex items-center gap-1.5 sm:gap-2"
                 >
-                  <span class="text-xs font-mono font-bold text-brand-600 dark:text-brand-400" aria-hidden="true">
-                    &times;
-                  </span>
                   <a
                     :href="partner.website"
                     target="_blank"
@@ -143,6 +149,13 @@
                   >
                     {{ partner.name }}
                   </a>
+                  <span
+                    v-if="pIdx < exp.partners.length - 1"
+                    class="text-xs font-mono font-bold text-brand-600 dark:text-brand-400"
+                    aria-hidden="true"
+                  >
+                    &times;
+                  </span>
                 </span>
               </div>
 
@@ -447,7 +460,6 @@ const orgFilters = [
   { id: 'brac-bank', label: 'BRAC Bank PLC' },
   { id: 'robi', label: 'Robi Axiata Limited' },
   { id: 'beximco', label: 'BEXIMCO' },
-  { id: 'inument', label: 'Inument' },
   { id: 'itogether', label: 'Together Initiative Limited' }
 ]
 
