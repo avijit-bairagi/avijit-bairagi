@@ -6,7 +6,7 @@
         <div class="flex items-center gap-4">
           <div class="w-16 h-16 rounded-2xl overflow-hidden bg-slate-900 border border-slate-200 dark:border-dark-border shadow-xs shrink-0">
             <img
-              src="/assets/aistudio/WhatsApp_Image_2026-11-14_at_4.11.58_PM_12d440c2.jpeg"
+              :src="profilePhoto"
               alt="Avijit Bairagi"
               class="w-full h-full object-cover object-top"
             />
@@ -56,4 +56,5 @@
 
 <script setup lang="ts">
 import { ArrowRight } from 'lucide-vue-next'
+import profilePhoto from '@/assets/images/profile.jpeg'
 </script>

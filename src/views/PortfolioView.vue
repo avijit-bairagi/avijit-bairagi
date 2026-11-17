@@ -18,7 +18,7 @@
           <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 -mt-10 sm:-mt-12 mb-4">
             <div class="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl overflow-hidden bg-slate-900 border-4 border-white dark:border-dark-surface shadow-sm shrink-0">
               <img
-                src="/assets/aistudio/WhatsApp_Image_2026-11-14_at_4.11.58_PM_12d440c2.jpeg"
+                :src="profilePhoto"
                 alt="Avijit Bairagi"
                 referrerpolicy="no-referrer"
                 class="w-full h-full object-cover object-top"
@@ -423,7 +423,8 @@ import { experiences } from '@/data/experience'
 import { projects, type ProjectItem } from '@/data/projects'
 import CompanyLogo from '@/components/common/CompanyLogo.vue'
 import ProjectDetailModal from '@/components/portfolio/ProjectDetailModal.vue'
-import coverBanner from '@/assets/images/profile_cover_banner_1794653314989.jpg'
+import coverBanner from '@/assets/images/profile-cover.jpg'
+import profilePhoto from '@/assets/images/profile.jpeg'
 
 const route = useRoute()
 const activeOrg = ref<string>('all')
