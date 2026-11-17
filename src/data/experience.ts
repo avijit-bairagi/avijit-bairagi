@@ -35,9 +35,10 @@ export const experiences: ExperienceItem[] = [
     domain: 'Fintech & Payment Systems',
     summary: 'Leading backend architecture, team delivery, and payment system integrations in collaboration with bKash.',
     contributions: [
-      'Architected ISO 8583 payment switching and integration services for NPSB, Direct Charge, and Bank-to-bKash flows.',
-      'Designed Digital Savings (DPS) and settlement reconciliation pipelines with Java, Reactive Java, and PostgreSQL.',
-      'Led sprint planning, code reviews, AWS and Docker deployments, and OpenTelemetry observability across squads.'
+      'Architected bKash ISO 8583 payment switching and integration services for NPSB enabling BanglaQR, MFS, and inter-bank payments.',
+      'Developed bKash Direct Charge payment services for local and global merchants (GP, Robi, Foodpanda, Uber, Spotify).',
+      'Built bKash online payment services for customers and merchants supporting M2M, M2C, and C2M payment flows.',
+      'Led sprint planning, code reviews, application security and auditing, AWS and Docker deployments, and OpenTelemetry observability.'
     ],
     technologies: ['Java', 'Reactive Java', 'Spring Boot', 'ISO 8583', 'RabbitMQ', 'AWS', 'Observability'],
     achievements: [
@@ -58,7 +59,7 @@ export const experiences: ExperienceItem[] = [
     domain: 'Enterprise & Corporate Banking',
     summary: 'Developed corporate internet banking platforms, real-time clearing switches, and Core Banking System integrations for BRAC Bank PLC.',
     contributions: [
-      'Built corporate banking modules supporting bulk payroll, inter-bank fund transfers, and maker-checker approvals.',
+      'Built corporate banking modules supporting bulk payroll, inter-bank fund transfers (BEFTN, NPSB, RTGS), and maker-checker approvals.',
       'Engineered Bangladesh Bank RTGS clearing connectors and Letter of Credit (LC) alert notification services.',
       'Implemented payment acquiring gateways and core banking adapters using Java, Spring Boot, REST, and SOAP APIs.'
     ],
@@ -85,10 +86,12 @@ export const experiences: ExperienceItem[] = [
     domain: 'Fintech, Telecom & Enterprise Systems',
     summary: 'Built enterprise web services, telecom platforms, and backend APIs across engagements with bKash, Robi Axiata Limited, and BEXIMCO.',
     contributions: [
-      'Developed payment gateway integrations and backend web services supporting bKash digital services.',
+      'Built Bank-to-bKash fund transfer flows enabling send and receive money between partner banks (City Bank, BRAC Bank, Agrani Bank) and bKash.',
+      'Designed bKash Digital Savings (DPS) and settlement reconciliation pipelines across financial institutions and partner banks.',
+      'Developed bKash Multibank settlement platform for financial institutions with project security controls and audit logging.',
       'Engineered subscriber workflow automation, NTMS traffic monitoring, and campaign management for Robi Axiata Limited.',
       'Built Pharma CRM and Field Force Automation (FFA) synchronization APIs for BEXIMCO distribution teams.'
     ],
-    technologies: ['Java', 'Spring Boot', 'MySQL', 'Redis', 'REST APIs', 'JS', 'Linux']
+    technologies: ['Java', 'Spring Boot', 'Spring Security', 'PostgreSQL', 'MySQL', 'Redis', 'REST APIs', 'JS', 'Linux']
   }
 ]

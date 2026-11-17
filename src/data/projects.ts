@@ -51,6 +51,29 @@ export const projects: ProjectItem[] = [
       'Maintained 100% adherence to financial security and cryptographic logging practices.'
     ]
   },
+  {
+    id: 'inument-security-auditing',
+    title: 'Project Security & Audit Compliance',
+    organizationId: 'inument',
+    organizationName: 'Inument',
+    organizationRelationship: 'Employer (Direct Employment)',
+    domain: 'Fintech Security · Access Control & Auditing',
+    categories: ['enterprise', 'fintech'],
+    shortDescription: 'End-to-end application security hardening, RBAC enforcement, and immutable audit logging for financial systems.',
+    fullDescription: 'Cross-cutting security and compliance framework implementing defense-in-depth API protection, fine-grained role-based access control, cryptographic payload integrity, and tamper-evident audit trails across fintech services.',
+    businessContext: 'Regulated financial platforms require strict access governance, sensitive data masking, and verifiable audit trails for internal and external compliance reviews.',
+    contributions: [
+      'Implemented fine-grained RBAC, OAuth2/JWT enforcement, and mutual TLS (mTLS) across core financial APIs.',
+      'Engineered immutable audit trail pipelines capturing user actions, approval chains, and settlement state transitions.',
+      'Built PII masking, sensitive field encryption, and automated vulnerability/code-security checks in CI/CD.'
+    ],
+    technologies: ['Java', 'Spring Security', 'PostgreSQL', 'OpenTelemetry', 'Docker', 'AWS'],
+    featured: true,
+    verifiedOutcomes: [
+      'Enforced consistent authentication, authorization, and auditability across multi-institution financial integrations.',
+      'Streamlined regulatory audit readiness with searchable, tamper-evident activity logs.'
+    ]
+  },
 
   // --- bKash (Project Contributions) ---
   {
@@ -191,6 +214,29 @@ export const projects: ProjectItem[] = [
       'Eliminated manual calculation discrepancies across multi-party merchant settlements.'
     ]
   },
+  {
+    id: 'bkash-multibank-settlement',
+    title: 'bKash Multibank Settlement (Financial Institutions)',
+    organizationId: 'bkash',
+    organizationName: 'bKash',
+    organizationRelationship: 'Project Contribution',
+    domain: 'Fintech · Multi-Bank Institutional Settlement',
+    categories: ['fintech', 'banking', 'payment'],
+    shortDescription: 'Multi-bank settlement and clearing platform connecting bKash with partner banks and financial institutions.',
+    fullDescription: 'Institutional settlement platform orchestrating multi-bank clearing, fund position reporting, automated fee allocation, and secure maker-checker disbursement across partner commercial banks and financial institutions.',
+    businessContext: 'Coordinating daily liquidity and settlement positions across multiple partner banks and financial institutions requires deterministic ledger consistency, strict access security, and complete auditability.',
+    contributions: [
+      'Engineered multi-bank settlement workflows routing institutional clearing files and automated payout instructions across partner financial institutions.',
+      'Implemented maker-checker approval controls, role-based access security, and encrypted host-to-host settlement channels.',
+      'Built comprehensive transaction audit logs and discrepancy reconciliation reports for banking compliance teams.'
+    ],
+    technologies: ['Java', 'Spring Boot', 'Spring Security', 'PostgreSQL', 'REST APIs', 'Linux'],
+    featured: true,
+    verifiedOutcomes: [
+      'Unified multi-bank settlement operations across partner banks and financial institutions on a single auditable workflow.',
+      'Strengthened settlement governance with strict authorization controls and end-to-end audit trails.'
+    ]
+  },
 
   // --- BRAC BANK (Project Contributions) ---
   {
@@ -201,12 +247,12 @@ export const projects: ProjectItem[] = [
     organizationRelationship: 'Project Contribution',
     domain: 'Commercial Banking · Institutional Portal',
     categories: ['banking', 'enterprise'],
-    shortDescription: 'Enterprise banking portal facilitating bulk payroll, multi-tier approvals, and treasury operations.',
-    fullDescription: 'Comprehensive corporate internet banking suite facilitating high-value treasury operations, bulk payroll disbursement, maker-checker authorization matrices, and enterprise accounting exports.',
-    businessContext: 'Corporate institutional clients require multi-level approval hierarchies, multi-currency ledger routing, and integration with core banking systems.',
+    shortDescription: 'Enterprise banking portal facilitating bulk payroll, BEFTN/NPSB/RTGS inter-bank transfers, multi-tier approvals, and treasury operations.',
+    fullDescription: 'Comprehensive corporate internet banking suite facilitating high-value treasury operations, BEFTN/NPSB/RTGS inter-bank fund transfers, bulk payroll disbursement, maker-checker authorization matrices, and enterprise accounting exports.',
+    businessContext: 'Corporate institutional clients require multi-level approval hierarchies, inter-bank clearing (BEFTN, NPSB, RTGS), and seamless integration with core banking systems.',
     contributions: [
       'Designed fine-grained role-based access control (RBAC) and configurable maker-checker authorization workflows.',
-      'Engineered bulk payroll batch processing parser capable of validating tens of thousands of salary rows.',
+      'Engineered BEFTN, NPSB, and RTGS inter-bank fund transfer modules alongside bulk payroll batch processing for tens of thousands of salary rows.',
       'Built core banking system (CBS) integration adapters connecting legacy proprietary protocols to modern RESTful services.'
     ],
     technologies: ['Java', 'Spring Boot', 'Spring Security', 'Oracle Database', 'REST APIs', 'Jenkins'],
